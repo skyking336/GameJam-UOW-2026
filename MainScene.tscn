@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dnb126rhywbaw" path="res://sprites/world_tileset.png" id="1_rpqi1"]
 [ext_resource type="PackedScene" uid="uid://c82rpr3lbn83q" path="res://Enemy 1/enemy.tscn" id="2_uxrcv"]
-[ext_resource type="PackedScene" uid="uid://2ocjumaqsyui" path="res://Dummy_Player/Dummy_Player.tscn" id="3_rf2cd"]
+[ext_resource type="PackedScene" uid="uid://x75nmxvaygmy" path="res://Player/Player.tscn" id="4_uxrcv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ia1lp"]
 texture = ExtResource("1_rpqi1")
@@ -148,4 +148,4 @@ tile_set = SubResource("TileSet_sasra")
 [node name="Enemy" parent="Enemies" unique_id=1361306782 instance=ExtResource("2_uxrcv")]
 position = Vector2(112, -24)
 
-[node name="DummyPlayer" parent="." unique_id=1074886558 instance=ExtResource("3_rf2cd")]
+[node name="Player" parent="." unique_id=543276265 groups=["DummyPlayer"] instance=ExtResource("4_uxrcv")]

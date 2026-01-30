@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var SPEED = 1000.0
 @export var player_group = "DummyPlayer"
-@export var player_object_name = "DummyPlayer"
+@export var player_object_name = "Player"
 @onready var player = get_tree().get_first_node_in_group(player_object_name)
 
 var attacked = false
