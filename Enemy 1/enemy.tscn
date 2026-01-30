@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://c82rpr3lbn83q"]
+
+[ext_resource type="Script" uid="uid://c40x5vxmpn66f" path="res://Enemy 1/enemy1.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://dog1y8g8wksry" path="res://sprites/slime_green.png" id="1_7k104"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gyqm"]
+atlas = ExtResource("1_7k104")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi2p4"]
+atlas = ExtResource("1_7k104")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iifgy"]
+atlas = ExtResource("1_7k104")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epg4t"]
+atlas = ExtResource("1_7k104")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3yqyl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gyqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qi2p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iifgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epg4t")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e2ou"]
+size = Vector2(14, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
+size = Vector2(14, 12)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1361306782 groups=["Enemies"]]
+script = ExtResource("1_4gyqm")
+
+[node name="SlimeAnimation" type="AnimatedSprite2D" parent="." unique_id=786765966 groups=["Enemies"]]
+position = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_3yqyl")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AttackRange" type="Area2D" parent="." unique_id=1082727073]
+collision_mask = 2
+
+[node name="AttackCollision" type="CollisionShape2D" parent="AttackRange" unique_id=893530688]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_5e2ou")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694013128]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_qi2p4")
+
+[node name="NormalAttackCooldown" type="Timer" parent="." unique_id=1287848473]
+
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="timeout" from="NormalAttackCooldown" to="." method="_on_normal_attack_cooldown_timeout"]
