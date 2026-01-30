@@ -47,9 +47,10 @@ size = Vector2(14, 12)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1361306782 groups=["Enemies"]]
 script = ExtResource("1_4gyqm")
+player_group = "Player"
 
 [node name="SlimeAnimation" type="AnimatedSprite2D" parent="." unique_id=786765966 groups=["Enemies"]]
-position = Vector2(0, -12)
+position = Vector2(58, 79)
 sprite_frames = SubResource("SpriteFrames_3yqyl")
 animation = &"idle"
 autoplay = "idle"
