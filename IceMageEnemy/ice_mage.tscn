@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://de56238phpait"]
 
 [ext_resource type="PackedScene" uid="uid://c82rpr3lbn83q" path="res://Enemy/enemy.tscn" id="1_iuobv"]
+[ext_resource type="Script" uid="uid://3iwxkk5eave7" path="res://IceMageEnemy/ice_mage.gd" id="2_34aqb"]
 [ext_resource type="Texture2D" uid="uid://cjr8krhwj5mee" path="res://IceMageEnemy/Walking_ICE Character-Sheet.png" id="2_vbmdw"]
 [ext_resource type="Texture2D" uid="uid://hlivbcb02mfk" path="res://IceMageEnemy/Hurt_ice Character-Sheet.png" id="2_y6a6f"]
+[ext_resource type="PackedScene" uid="uid://db3mbkm1rc504" path="res://IceMageEnemy/mage_ice_ball.tscn" id="3_8llbb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4pxp"]
 atlas = ExtResource("2_y6a6f")
@@ -82,9 +84,32 @@ animations = [{
 
 [node name="IceMage" unique_id=1361306782 instance=ExtResource("1_iuobv")]
 collision_mask = 0
-SPEED = 10.0
-character_name = "ice_mage"
+script = ExtResource("2_34aqb")
+SPEED = 25.0
+MageIceBall = ExtResource("3_8llbb")
 
 [node name="EnemyAnimation" parent="." index="0" unique_id=786765966]
 sprite_frames = SubResource("SpriteFrames_j4pxp")
 animation = &"hurt"
+
+[node name="AttackRange" parent="." index="1" unique_id=1082727073]
+visible = false
+
+[node name="AttackCollision" parent="AttackRange" index="0" unique_id=893530688]
+visible = false
+
+[node name="HitBoxes" parent="." index="2" unique_id=415184857]
+visible = false
+
+[node name="AttackCollision" parent="HitBoxes" index="0" unique_id=216106609]
+visible = false
+
+[node name="CollisionShape2D" parent="." index="3" unique_id=694013128]
+visible = false
+
+[node name="IceBallCooldown" type="Timer" parent="." index="5" unique_id=1147530595]
+
+[node name="IceBallLocation" type="Marker2D" parent="." index="6" unique_id=186046118]
+position = Vector2(21, -6)
+
+[connection signal="timeout" from="IceBallCooldown" to="." method="_on_ice_ball_cooldown_timeout"]

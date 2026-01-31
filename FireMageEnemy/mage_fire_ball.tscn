@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://biot7x6u11iaq"]
+
+[ext_resource type="PackedScene" uid="uid://deictmrsb0lrp" path="res://Weapon/FireballWeapon/Fireball.tscn" id="1_tw3li"]
+[ext_resource type="Script" uid="uid://c5nrlbc1smsbj" path="res://FireMageEnemy/mage_fire_ball.gd" id="2_cx6dt"]
+
+[node name="MageFireBall" unique_id=647778702 instance=ExtResource("1_tw3li")]
+z_index = 10
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_cx6dt")
+
+[node name="Sprite" parent="." index="0" unique_id=231261866]
+autoplay = "default"
+frame_progress = 0.8204753
+
+[node name="Area" parent="." index="1" unique_id=1935123072]
+collision_layer = 64
+collision_mask = 2
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

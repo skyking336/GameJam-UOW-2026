@@ -1,17 +1,20 @@
 extends CharacterBody2D
 
 
-@export var SPEED = 400.0
-@export var player_group = "DummyPlayer"
+@export var SPEED = 25.0
+@export var player_group = "Player"
 @export var basic_damage: int = 10
 @export var health: int = 3
 @export var exp_value: int = 20
+@export var MageIceBall : PackedScene
 
-@onready var player = get_tree().get_first_node_in_group(player_group)
+@onready var player = get_tree().get_first_node_in_group("Player")
 
 @export var  character_name = "Enemy"
 signal broadcast_character_name(name : String)
 
+var shot_iceball = false
+var ice_ball_speed = 100
 
 var attacked = false
 var player_in_range = false
@@ -20,6 +23,8 @@ var Alive = true
 
 signal on_died(exp_value: int)
 
+func _ready():
+	$IceBallCooldown.start()
 
 func _physics_process(_delta: float) -> void:
 	if Alive == true:
@@ -29,19 +34,34 @@ func _physics_process(_delta: float) -> void:
 		if player_direction.x < 0:
 			$EnemyAnimation.flip_h = true
 			$AttackRange/AttackCollision.position = -abs($AttackRange/AttackCollision.position)
+			$IceBallLocation.position = -abs($IceBallLocation.position)
 		else:
 			$EnemyAnimation.flip_h = false
 			$AttackRange/AttackCollision.position = abs($AttackRange/AttackCollision.position)
+			$IceBallLocation.position = abs($IceBallLocation.position)
 		if attacked == false and player_in_range == true:
 			player.got_damaged(basic_damage)
 			attacked = true
 			$NormalAttackCooldown.start()
+		
+		if shot_iceball == false:
+			shoot_ice_ball(player_direction)
+			shot_iceball = true
 			
 func fade_out_on_dying():
 	var tween = get_tree().create_tween()
 	tween.tween_property($EnemyAnimation, "modulate", Color.RED, 0.2)
 	tween.tween_property($EnemyAnimation, "modulate:a", 0.0 , 0.5)
 	tween.tween_callback(queue_free)
+	
+func shoot_ice_ball(direction: Vector2):
+	var iceball = MageIceBall.instantiate()
+	var main_scene = get_tree().get_first_node_in_group("MainScene")
+	iceball.global_position = $IceBallLocation.global_position
+	iceball.look_at(player.global_position)
+	main_scene.add_child(iceball)
+	iceball.linear_velocity = ice_ball_speed * direction.normalized()	
+
 
 func got_damaged():
 	if Alive == true:
@@ -73,3 +93,6 @@ func _on_normal_attack_cooldown_timeout() -> void:
 
 func _on_hit_boxes_mouse_entered() -> void:
 	broadcast_character_name.emit(character_name)
+	
+func _on_ice_ball_cooldown_timeout() -> void:
+	shot_iceball = false

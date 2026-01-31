@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://db3mbkm1rc504"]
+
+[ext_resource type="PackedScene" uid="uid://deictmrsb0lrp" path="res://Weapon/FireballWeapon/Fireball.tscn" id="1_fo4g8"]
+[ext_resource type="Script" uid="uid://cfi5i8icw63um" path="res://IceMageEnemy/mage_ice_ball.gd" id="2_rm1au"]
+[ext_resource type="Texture2D" uid="uid://bhjtpcfh6p6vt" path="res://IceMageEnemy/Ice shoot-Sheet.png" id="3_rm1au"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge7wp"]
+atlas = ExtResource("3_rm1au")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmppu"]
+atlas = ExtResource("3_rm1au")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6vhv"]
+atlas = ExtResource("3_rm1au")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inu7x"]
+atlas = ExtResource("3_rm1au")
+region = Rect2(144, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqdy6"]
+atlas = ExtResource("3_rm1au")
+region = Rect2(192, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxtcu"]
+atlas = ExtResource("3_rm1au")
+region = Rect2(240, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nt260"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge7wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmppu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6vhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inu7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqdy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxtcu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MageIceBall" unique_id=647778702 instance=ExtResource("1_fo4g8")]
+z_index = 10
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_rm1au")
+
+[node name="Sprite" parent="." index="0" unique_id=231261866]
+sprite_frames = SubResource("SpriteFrames_nt260")
+autoplay = "default"
+frame_progress = 0.0
+
+[node name="Area" parent="." index="1" unique_id=1935123072]
+collision_layer = 64
+collision_mask = 2
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

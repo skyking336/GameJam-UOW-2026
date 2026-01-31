@@ -66,6 +66,18 @@ region = Rect2(192, 0, 64, 64)
 atlas = ExtResource("3_vlldt")
 region = Rect2(256, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v5gs"]
+atlas = ExtResource("3_vlldt")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sa4y"]
+atlas = ExtResource("3_vlldt")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nb2p"]
+atlas = ExtResource("3_vlldt")
+region = Rect2(448, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_v0k0e"]
 animations = [{
 "frames": [{
@@ -112,14 +124,25 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3mea3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v5gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sa4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nb2p")
 }],
 "loop": true,
 "name": &"walking",
-"speed": 5.0
+"speed": 9.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=543276265]
 z_index = 1
+collision_layer = 2
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_3qydi")
 SPEED = 250.0
@@ -136,7 +159,7 @@ z_index = 1
 sprite_frames = SubResource("SpriteFrames_v0k0e")
 animation = &"walking"
 autoplay = "idle"
-frame_progress = 0.73130584
+frame_progress = 0.10467875
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1482792967]
 
