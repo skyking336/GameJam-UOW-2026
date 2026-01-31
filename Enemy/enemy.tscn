@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c82rpr3lbn83q"]
 
-[ext_resource type="Script" uid="uid://c40x5vxmpn66f" path="res://Enemy 1/enemy1.gd" id="1_4gyqm"]
+[ext_resource type="Script" uid="uid://c40x5vxmpn66f" path="res://Enemy/enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://dog1y8g8wksry" path="res://placeholder_sprite/slime_green.png" id="2_5e2ou"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5e2ou"]
@@ -39,7 +39,7 @@ region = Rect2(72, 24, 24, 24)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5e2ou")
+"texture": SubResource("AtlasTexture_4gyqm")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r1317")
@@ -73,27 +73,23 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5e2ou"]
-size = Vector2(14, 12)
+size = Vector2(29.5, 25.402344)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
 size = Vector2(14, 12)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1361306782 groups=["Enemies"]]
-scale = Vector2(2, 2)
-collision_layer = 2
-motion_mode = 1
 script = ExtResource("1_4gyqm")
+player_group = "Player"
 
 [node name="SlimeAnimation" type="AnimatedSprite2D" parent="." unique_id=786765966 groups=["Enemies"]]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_3yqyl")
+animation = &"idle"
 animation = &"hurt"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.3881548
 
-[node name="AttackRange" type="Area2D" parent="." unique_id=1082727073]
-collision_mask = 2
+[node name="AttackRange" type="Area2D" parent="." unique_id=1082727073 groups=["Enemies"]]
 
 [node name="AttackCollision" type="CollisionShape2D" parent="AttackRange" unique_id=893530688]
 position = Vector2(0, -6)
@@ -106,4 +102,5 @@ shape = SubResource("RectangleShape2D_qi2p4")
 [node name="NormalAttackCooldown" type="Timer" parent="." unique_id=1287848473]
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
 [connection signal="timeout" from="NormalAttackCooldown" to="." method="_on_normal_attack_cooldown_timeout"]

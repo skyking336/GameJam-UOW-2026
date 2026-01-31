@@ -1,19 +1,16 @@
 extends CharacterBody2D
 
 
+@export var SPEED = 1000.0
 @export var player_group = "DummyPlayer"
-@export var player_object_name = "Player"
-@onready var player = get_tree().get_first_node_in_group(player_group)
+@export var basic_damage: int = 10
 
-@export var SPEED = 50.0
-@export var health = 5
-@export var damage = 5
+@onready var player = get_tree().get_first_node_in_group(player_group)
 
 var attacked = false
 var player_in_range = false
 
 func _ready() -> void:
-	
 	if player != null:
 		print("there is player")
 		print(player)
@@ -32,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		$SlimeAnimation.flip_h = false
 		$AttackRange/AttackCollision.position = abs($AttackRange/AttackCollision.position)
 	if attacked == false and player_in_range == true:
-		#player.got_damaged()
+		player.got_damaged(basic_damage)
 		attacked = true
 		$NormalAttackCooldown.start()
 
@@ -48,6 +45,12 @@ func got_damaged():
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group(player_group):
 		player_in_range = true
+
+
+func _on_attack_range_body_exited(body: Node2D) -> void:
+	if body.is_in_group(player_group):
+		player_in_range = false
+
 
 func _on_normal_attack_cooldown_timeout() -> void:
 	attacked = false
