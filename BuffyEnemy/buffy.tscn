@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://vlibcyph3cp1"]
+
+[ext_resource type="PackedScene" uid="uid://c82rpr3lbn83q" path="res://Enemy/enemy.tscn" id="1_4065m"]
+[ext_resource type="Texture2D" uid="uid://bwh8kwxnv8gb4" path="res://BuffyEnemy/Character_BigBuff/Walking_Big Strong Character_V2.png" id="2_0hrfh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhsij"]
+atlas = ExtResource("2_0hrfh")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mf3js"]
+atlas = ExtResource("2_0hrfh")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbq2n"]
+atlas = ExtResource("2_0hrfh")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6djgp"]
+atlas = ExtResource("2_0hrfh")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhqhv"]
+atlas = ExtResource("2_0hrfh")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afitp"]
+atlas = ExtResource("2_0hrfh")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2qsr"]
+atlas = ExtResource("2_0hrfh")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rr8ty"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhsij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mf3js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbq2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6djgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhqhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afitp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2qsr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Buffy" unique_id=1361306782 instance=ExtResource("1_4065m")]
+SPEED = 25.0
+
+[node name="EnemyAnimation" parent="." index="0" unique_id=786765966]
+sprite_frames = SubResource("SpriteFrames_rr8ty")
+
+[node name="AttackCollision" parent="AttackRange" parent_id_path=PackedInt32Array(1082727073) index="0" unique_id=893530688]
+position = Vector2(4, -20)

@@ -20,10 +20,10 @@ func _physics_process(_delta: float) -> void:
 	velocity =  player_direction * SPEED
 	move_and_slide()
 	if player_direction.x < 0:
-		$SlimeAnimation.flip_h = true
+		$EnemyAnimation.flip_h = true
 		$AttackRange/AttackCollision.position = -abs($AttackRange/AttackCollision.position)
 	else:
-		$SlimeAnimation.flip_h = false
+		$EnemyAnimation.flip_h = false
 		$AttackRange/AttackCollision.position = abs($AttackRange/AttackCollision.position)
 	if attacked == false and player_in_range == true:
 		player.got_damaged(basic_damage)
@@ -36,10 +36,10 @@ func got_damaged():
 	if health <= 0:
 		on_died.emit(exp_value)
 		queue_free()
-	$SlimeAnimation.stop()
-	$SlimeAnimation.play("hurt")
-	await $SlimeAnimation.animation_finished
-	$SlimeAnimation.play("idle")
+	$EnemyAnimation.stop()
+	$EnemyAnimation.play("hurt")
+	await $EnemyAnimation.animation_finished
+	$EnemyAnimation.play("idle")
 
 
 func _on_attack_range_body_entered(body: Node2D) -> void:

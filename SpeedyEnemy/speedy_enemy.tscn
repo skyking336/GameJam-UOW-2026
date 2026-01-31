@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bcloig30jrv4u"]
+
+[ext_resource type="PackedScene" uid="uid://c82rpr3lbn83q" path="res://Enemy/enemy.tscn" id="1_46wde"]
+[ext_resource type="Texture2D" uid="uid://conrbp3jrg8vm" path="res://SpeedyEnemy/Character_PoisonCharacter/Walking_Poison Character-Sheet.png" id="2_y113d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnqm4"]
+atlas = ExtResource("2_y113d")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irs8m"]
+atlas = ExtResource("2_y113d")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jehxg"]
+atlas = ExtResource("2_y113d")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nc5v"]
+atlas = ExtResource("2_y113d")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4237j"]
+atlas = ExtResource("2_y113d")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_whbm1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnqm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irs8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jehxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nc5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4237j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y113d"]
+radius = 14.0
+height = 48.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y113d"]
+radius = 2.0
+
+[node name="SpeedyEnemy" unique_id=1361306782 instance=ExtResource("1_46wde")]
+SPEED = 150.0
+
+[node name="EnemyAnimation" parent="." index="0" unique_id=786765966]
+sprite_frames = SubResource("SpriteFrames_whbm1")
+
+[node name="AttackCollision" parent="AttackRange" parent_id_path=PackedInt32Array(1082727073) index="0" unique_id=893530688]
+position = Vector2(-1, -12)
+shape = SubResource("CapsuleShape2D_y113d")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=694013128]
+shape = SubResource("CircleShape2D_y113d")
