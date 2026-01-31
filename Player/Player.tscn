@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dfv1mhndwxen5" path="res://SpriteAssets/IDLE_Initial Character-Sheet.png" id="2_q3lat"]
 [ext_resource type="PackedScene" uid="uid://brlj34cctrmr4" path="res://AimingCursor/aiming_cursor.tscn" id="3_tok1r"]
 [ext_resource type="PackedScene" uid="uid://dxodcqhnwcyum" path="res://Weapon/ShurikenWeapon/ShurikenWeapon.tscn" id="4_ddoul"]
+[ext_resource type="Script" uid="uid://bq7mrd3g36pbt" path="res://Player/AbilitySystem.gd" id="5_8g4oa"]
+[ext_resource type="Script" uid="uid://ibhp1ctvq5am" path="res://Player/experience_system.gd" id="6_6ysni"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3lat"]
 height = 46.0
@@ -98,3 +100,11 @@ frame_progress = 0.6594555
 [node name="AimingCursor" parent="." unique_id=491115966 instance=ExtResource("3_tok1r")]
 
 [node name="ShurikenWeapon" parent="." unique_id=611963234 instance=ExtResource("4_ddoul")]
+
+[node name="AbilitySystem" type="Node" parent="." unique_id=782489752]
+script = ExtResource("5_8g4oa")
+
+[node name="ExperienceSystem" type="Node" parent="." unique_id=1412130544]
+script = ExtResource("6_6ysni")
+
+[connection signal="signal_invincible" from="ExperienceSystem" to="." method="_on_experience_system_signal_invincible"]

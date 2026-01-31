@@ -55,10 +55,12 @@ wait_time = 5.0
 wait_time = 10.0
 
 [node name="BuffySpawnCooldown" type="Timer" parent="." unique_id=1286537244]
+wait_time = 15.0
 
 [node name="FireMageSpawnCooldown" type="Timer" parent="." unique_id=651624651]
 
 [node name="IceMageSpawnCooldown" type="Timer" parent="." unique_id=1437841654]
+wait_time = 20.0
 
 [connection signal="timeout" from="NormalEnemySpawnCooldown" to="." method="_on_normal_enemy_spawn_cooldown_timeout"]
 [connection signal="timeout" from="SpeedySpawnCooldown" to="." method="_on_speedy_spawn_cooldown_timeout"]

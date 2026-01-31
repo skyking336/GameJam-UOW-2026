@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://fdukv0suykvd"]
+[gd_scene format=3 uid="uid://utu50q5yl7j6"]
 
 [ext_resource type="Script" uid="uid://c87v840flckmc" path="res://Weapon/projectile.gd" id="1_phvm6"]
 
@@ -6,12 +6,15 @@
 radius = 6.0
 
 [node name="Projectile" type="RigidBody2D" unique_id=647778702]
+collision_mask = 128
 gravity_scale = 0.0
 script = ExtResource("1_phvm6")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=231261866]
 
 [node name="Area" type="Area2D" parent="." unique_id=1935123072]
+collision_layer = 128
+collision_mask = 128
 
 [node name="AreaShape" type="CollisionShape2D" parent="Area" unique_id=1368009481]
 shape = SubResource("CircleShape2D_n6w0p")
@@ -19,4 +22,5 @@ shape = SubResource("CircleShape2D_n6w0p")
 [node name="LifetimeTimer" type="Timer" parent="." unique_id=1919665905]
 wait_time = 3.0
 
+[connection signal="area_shape_entered" from="Area" to="." method="_on_area_area_shape_entered"]
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]
