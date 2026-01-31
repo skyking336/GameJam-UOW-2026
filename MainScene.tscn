@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://by0b6f1ioaqyg"]
 
 [ext_resource type="Texture2D" uid="uid://dnb126rhywbaw" path="res://placeholder_sprite/world_tileset.png" id="1_uxrcv"]
-[ext_resource type="Texture2D" uid="uid://b3kku350x5htf" path="res://icon.svg" id="4_rf2cd"]
 [ext_resource type="PackedScene" uid="uid://x75nmxvaygmy" path="res://Player/Player.tscn" id="4_uxrcv"]
 [ext_resource type="PackedScene" uid="uid://dbhl0iway82yg" path="res://EnemySpawner/enemy_spawner.tscn" id="5_rf2cd"]
 
@@ -146,11 +145,7 @@ tile_set = SubResource("TileSet_sasra")
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." unique_id=543276265 groups=["Player"] instance=ExtResource("4_uxrcv")]
-position = Vector2(320, 179)
+position = Vector2(2, 1)
 
 [node name="EnemySpawner" parent="Player" unique_id=339057514 instance=ExtResource("5_rf2cd")]
 position = Vector2(-6, -5)
-
-[node name="Icon" type="Sprite2D" parent="." unique_id=183050067]
-position = Vector2(452, 129)
-texture = ExtResource("4_rf2cd")

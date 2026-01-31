@@ -1,8 +1,6 @@
 extends Node2D
 
-@export var player_group = "DummyPlayer"
-@export var player_object_name = "Player"
-
+@export var player_group = "Player"
 @export var enemies : Array[PackedScene]
 #@export var enemynames : Dictionary [String,PackedScene]
 

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dxodcqhnwcyum"]
+
+[ext_resource type="PackedScene" uid="uid://ywwepag3t7f3" path="res://Weapon/Weapon.tscn" id="1_njukp"]
+[ext_resource type="Script" uid="uid://x7ju2qm1vs81" path="res://Weapon/ShurikenWeapon/shuriken_weapon.gd" id="2_u3dc2"]
+[ext_resource type="PackedScene" uid="uid://bbic4mjhq6chj" path="res://Weapon/ShurikenWeapon/Shuriken.tscn" id="3_5twtw"]
+
+[node name="ShurikenWeapon" unique_id=611963234 instance=ExtResource("1_njukp")]
+script = ExtResource("2_u3dc2")
+projectile_scene = ExtResource("3_5twtw")
