@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://iqwtkdukiaui"]
 
+[ext_resource type="Script" uid="uid://dex1rkm5y2fjp" path="res://UI/main_ui.gd" id="1_wwh41"]
 [ext_resource type="Theme" uid="uid://dlvnhi6ls1a30" path="res://MainTheme.tres" id="1_xv1u1"]
-
-[sub_resource type="Gradient" id="Gradient_xv1u1"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wwh41"]
-gradient = SubResource("Gradient_xv1u1")
-width = 16
-height = 16
+[ext_resource type="Texture2D" uid="uid://bftntekp8my1y" path="res://UI/Fire_Ui.png" id="3_8cqdv"]
+[ext_resource type="Texture2D" uid="uid://bdxl6hlp0s4ja" path="res://UI/QuestionMarks_ui.png" id="3_wa2eh"]
+[ext_resource type="Texture2D" uid="uid://suvk1uhuud8b" path="res://UI/Frozen_ui.png" id="4_475mu"]
+[ext_resource type="Texture2D" uid="uid://8wenytkeq2he" path="res://UI/Poison Bottle_uii.png" id="5_uqb74"]
 
 [node name="MainUI" type="CanvasLayer" unique_id=813658371]
+script = ExtResource("1_wwh41")
+empty_ability_icon = ExtResource("3_wa2eh")
+fire_ability_icon = ExtResource("3_8cqdv")
+ice_ability_icon = ExtResource("4_475mu")
+poison_ability_icon = ExtResource("5_uqb74")
 
 [node name="MainMargin" type="MarginContainer" parent="." unique_id=148515236]
 anchors_preset = 15
@@ -32,6 +35,7 @@ layout_mode = 2
 text = "EXP"
 
 [node name="ExpLevel" type="ProgressBar" parent="MainMargin/GridContainer" unique_id=2027470902]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_type_variation = &"ExpLevel"
@@ -51,6 +55,7 @@ size_flags_horizontal = 3
 theme_override_constants/margin_right = 300
 
 [node name="HPLevel" type="ProgressBar" parent="MainMargin/GridContainer/HBoxContainer/MarginContainer" unique_id=1909737340]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
@@ -61,14 +66,17 @@ value = 80.0
 layout_mode = 2
 text = "Abilities: "
 
-[node name="AbilityCont1" type="TextureRect" parent="MainMargin/GridContainer/HBoxContainer" unique_id=197397428]
+[node name="AbilityIcon1" type="TextureRect" parent="MainMargin/GridContainer/HBoxContainer" unique_id=197397428]
+unique_name_in_owner = true
 layout_mode = 2
-texture = SubResource("GradientTexture2D_wwh41")
+texture = ExtResource("3_wa2eh")
 
-[node name="AbilityCont2" type="TextureRect" parent="MainMargin/GridContainer/HBoxContainer" unique_id=1590925476]
+[node name="AbilityIcon2" type="TextureRect" parent="MainMargin/GridContainer/HBoxContainer" unique_id=1590925476]
+unique_name_in_owner = true
 layout_mode = 2
-texture = SubResource("GradientTexture2D_wwh41")
+texture = ExtResource("3_wa2eh")
 
-[node name="AbilityCont3" type="TextureRect" parent="MainMargin/GridContainer/HBoxContainer" unique_id=974110106]
+[node name="AbilityIcon3" type="TextureRect" parent="MainMargin/GridContainer/HBoxContainer" unique_id=974110106]
+unique_name_in_owner = true
 layout_mode = 2
-texture = SubResource("GradientTexture2D_wwh41")
+texture = ExtResource("3_wa2eh")
