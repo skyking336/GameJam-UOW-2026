@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c6b8p7wbgbtm8" path="res://SpriteAssets/TileMap.png" id="2_uxrcv"]
 [ext_resource type="PackedScene" uid="uid://x75nmxvaygmy" path="res://Player/Player.tscn" id="4_uxrcv"]
 [ext_resource type="PackedScene" uid="uid://dbhl0iway82yg" path="res://EnemySpawner/enemy_spawner.tscn" id="5_rf2cd"]
+[ext_resource type="PackedScene" uid="uid://iqwtkdukiaui" path="res://UI/MainUI.tscn" id="3_rf2cd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rf2cd"]
 texture = ExtResource("2_uxrcv")
@@ -191,7 +192,7 @@ position = Vector2(2, 1)
 process_mode = 1
 position = Vector2(-6, -5)
 
-[node name="MainUI" parent="." unique_id=813658371 instance=ExtResource("4_rf2cd")]
+[node name="MainUI" parent="." unique_id=813658371 instance=ExtResource("3_rf2cd")]
 
 [connection signal="ability_updated" from="Player" to="MainUI" method="_on_player_ability_updated"]
 [connection signal="exp_threshold_updated" from="Player" to="MainUI" method="_on_player_exp_threshold_updated"]
