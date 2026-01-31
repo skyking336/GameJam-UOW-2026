@@ -1,0 +1,28 @@
+[gd_resource type="Theme" format=3 uid="uid://dlvnhi6ls1a30"]
+
+[ext_resource type="FontFile" uid="uid://bvjge7stnmsml" path="res://PixelOperator8.ttf" id="1_4as0w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s18r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4as0w"]
+bg_color = Color(0.26608434, 0.5486766, 0.7082146, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhag5"]
+bg_color = Color(1, 0.34353602, 0.27448323, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfn4m"]
+bg_color = Color(3.1766297e-06, 0.7172408, 0.40120497, 1)
+
+[resource]
+ExpLevel/base_type = &"ProgressBar"
+ExpLevel/colors/font_color = Color(0, 0, 0, 0)
+ExpLevel/font_sizes/font_size = 10
+ExpLevel/styles/background = SubResource("StyleBoxFlat_8s18r")
+ExpLevel/styles/fill = SubResource("StyleBoxFlat_4as0w")
+HPLevel/base_type = &"ExpLevel"
+HPLevel/styles/background = SubResource("StyleBoxFlat_yhag5")
+HPLevel/styles/fill = SubResource("StyleBoxFlat_rfn4m")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 6
+Label/font_sizes/font_size = 12
+Label/fonts/font = ExtResource("1_4as0w")

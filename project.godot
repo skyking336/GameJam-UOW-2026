@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=4
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
@@ -32,6 +33,10 @@ version_control/autoload_on_startup=true
 [global_group]
 
 MainScene=""
+
+[gui]
+
+theme/custom="uid://dlvnhi6ls1a30"
 
 [input]
 
