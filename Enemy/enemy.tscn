@@ -88,8 +88,9 @@ height = 50.0
 radius = 2.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1361306782 groups=["Enemies"]]
-collision_layer = 2
-collision_mask = 4
+process_mode = 1
+collision_layer = 128
+collision_mask = 6
 script = ExtResource("1_4gyqm")
 SPEED = 50.0
 player_group = "Player"
@@ -107,6 +108,14 @@ autoplay = "idle"
 position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_am0pq")
 
+[node name="HitBoxes" type="Area2D" parent="." unique_id=415184857 groups=["Enemies"]]
+collision_layer = 128
+collision_mask = 128
+
+[node name="AttackCollision" type="CollisionShape2D" parent="HitBoxes" unique_id=216106609]
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_am0pq")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=694013128]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_am0pq")
@@ -115,4 +124,6 @@ shape = SubResource("CircleShape2D_am0pq")
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
+[connection signal="body_entered" from="HitBoxes" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="HitBoxes" to="." method="_on_attack_range_body_exited"]
 [connection signal="timeout" from="NormalAttackCooldown" to="." method="_on_normal_attack_cooldown_timeout"]
