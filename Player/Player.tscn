@@ -76,7 +76,6 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=543276265 groups=["DummyPlayer"]]
 z_index = 1
-collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_3qydi")
 SPEED = 250.0

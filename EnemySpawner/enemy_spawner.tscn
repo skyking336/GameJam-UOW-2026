@@ -2,6 +2,30 @@
 
 [ext_resource type="Script" uid="uid://c7pdt6420svyi" path="res://EnemySpawner/enemy_spawner.gd" id="1_t8uj2"]
 [ext_resource type="PackedScene" uid="uid://c82rpr3lbn83q" path="res://Enemy/enemy.tscn" id="2_26bmk"]
+[ext_resource type="PackedScene" uid="uid://bcloig30jrv4u" path="res://SpeedyEnemy/speedy_enemy.tscn" id="3_m0m3j"]
+[ext_resource type="PackedScene" uid="uid://vlibcyph3cp1" path="res://BuffyEnemy/buffy.tscn" id="4_cylr4"]
+[ext_resource type="PackedScene" uid="uid://dhbdtsg33uccl" path="res://FireMageEnemy/fire_mage.tscn" id="5_jrm1r"]
+[ext_resource type="PackedScene" uid="uid://de56238phpait" path="res://IceMageEnemy/ice_mage.tscn" id="6_gycev"]
+
+[sub_resource type="Curve" id="Curve_26bmk"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4619047, 0.5257271), 0.0, 0.0, 0, 0, Vector2(0.99523807, 0.105145454), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_m0m3j"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.49999994, 0.5883669), 0.0, 0.0, 0, 0, Vector2(1, 0.20357943), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_yxnvd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.49523807, 0.6599553), 0.0, 0.0, 0, 0, Vector2(1, 0.09619689), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_cylr4"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.49523807, 0.6331097), 0.0, 0.0, 0, 0, Vector2(1, 0.07829988), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_jrm1r"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.47619045, 0.33780766), 0.0, 0.0, 0, 0, Vector2(1, 0.23042512), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_r7hu2"]
 _data = {
@@ -11,7 +35,12 @@ point_count = 5
 
 [node name="EnemySpawner" type="Node2D" unique_id=339057514]
 script = ExtResource("1_t8uj2")
-enemies = Array[PackedScene]([ExtResource("2_26bmk")])
+enemies = Array[PackedScene]([ExtResource("2_26bmk"), ExtResource("3_m0m3j"), ExtResource("4_cylr4"), ExtResource("5_jrm1r"), ExtResource("6_gycev")])
+normal_enemy_spawn_curve = SubResource("Curve_26bmk")
+speedy_spawn_curve = SubResource("Curve_m0m3j")
+buffy_spawn_curve = SubResource("Curve_yxnvd")
+fire_mage_spawn_curve = SubResource("Curve_cylr4")
+ice_mage_spawn_curve = SubResource("Curve_jrm1r")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1725134378]
 curve = SubResource("Curve2D_r7hu2")
@@ -19,7 +48,20 @@ curve = SubResource("Curve2D_r7hu2")
 [node name="MobSpawnArea" type="PathFollow2D" parent="Path2D" unique_id=1149142565]
 position = Vector2(-384, 256)
 
-[node name="MobSpawnCooldown" type="Timer" parent="." unique_id=2026400366]
-wait_time = 0.5
+[node name="NormalEnemySpawnCooldown" type="Timer" parent="." unique_id=2026400366]
+wait_time = 5.0
 
-[connection signal="timeout" from="MobSpawnCooldown" to="." method="_on_mob_spawn_cooldown_timeout"]
+[node name="SpeedySpawnCooldown" type="Timer" parent="." unique_id=1433961815]
+wait_time = 10.0
+
+[node name="BuffySpawnCooldown" type="Timer" parent="." unique_id=1286537244]
+
+[node name="FireMageSpawnCooldown" type="Timer" parent="." unique_id=651624651]
+
+[node name="IceMageSpawnCooldown" type="Timer" parent="." unique_id=1437841654]
+
+[connection signal="timeout" from="NormalEnemySpawnCooldown" to="." method="_on_normal_enemy_spawn_cooldown_timeout"]
+[connection signal="timeout" from="SpeedySpawnCooldown" to="." method="_on_speedy_spawn_cooldown_timeout"]
+[connection signal="timeout" from="BuffySpawnCooldown" to="." method="_on_buffy_spawn_cooldown_timeout"]
+[connection signal="timeout" from="FireMageSpawnCooldown" to="." method="_on_fire_mage_spawn_cooldown_timeout"]
+[connection signal="timeout" from="IceMageSpawnCooldown" to="." method="_on_ice_mage_spawn_cooldown_timeout"]
