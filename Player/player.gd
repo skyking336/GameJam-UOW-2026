@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var SPEED: float = 200.0
 @export var health: int = 100
+var experience: int = 0
 
 
 func _physics_process(_delta: float) -> void:
@@ -12,3 +13,8 @@ func _physics_process(_delta: float) -> void:
 
 func got_damaged(damage: int) -> void:
 	health -= damage
+
+
+func inc_experience(ex: int) -> void:
+	print("Gained " + str(ex) + " experience!")
+	experience += ex
