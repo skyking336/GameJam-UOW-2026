@@ -1,8 +1,6 @@
 extends Node2D
 
-@export var player_group = "DummyPlayer"
-@export var player_object_name = "Player"
-
+@export var player_group = "Player"
 @export var enemies : Array[PackedScene]
 
 @onready var player = get_tree().get_first_node_in_group(player_group)
@@ -18,4 +16,4 @@ func _on_mob_spawn_cooldown_timeout() -> void:
 	$Path2D/MobSpawnArea.progress_ratio = randf()
 	enemy.position = $Path2D/MobSpawnArea.position
 	get_parent().add_child(enemy)
-	print(str($Path2D/MobSpawnArea.position))
+	enemy.on_died.connect(player.inc_experience)

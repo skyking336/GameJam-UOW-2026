@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bd7bp7cdd1tp5" path="res://Player/player.gd" id="1_3qydi"]
 [ext_resource type="Texture2D" uid="uid://dfv1mhndwxen5" path="res://SpriteAssets/IDLE_Initial Character-Sheet.png" id="2_q3lat"]
 [ext_resource type="PackedScene" uid="uid://brlj34cctrmr4" path="res://AimingCursor/aiming_cursor.tscn" id="3_tok1r"]
+[ext_resource type="PackedScene" uid="uid://dxodcqhnwcyum" path="res://Weapon/ShurikenWeapon/ShurikenWeapon.tscn" id="4_ddoul"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3lat"]
 height = 46.0
@@ -74,7 +75,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=543276265 groups=["DummyPlayer"]]
+[node name="Player" type="CharacterBody2D" unique_id=543276265]
 z_index = 1
 collision_mask = 3
 motion_mode = 1
@@ -96,3 +97,5 @@ frame_progress = 0.6594555
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1482792967]
 
 [node name="AimingCursor" parent="." unique_id=491115966 instance=ExtResource("3_tok1r")]
+
+[node name="ShurikenWeapon" parent="." unique_id=611963234 instance=ExtResource("4_ddoul")]

@@ -5,11 +5,14 @@ extends CharacterBody2D
 @export var player_group = "DummyPlayer"
 @export var basic_damage: int = 10
 @export var health: int = 3
+@export var exp_value: int = 20
 
 @onready var player = get_tree().get_first_node_in_group(player_group)
 
 var attacked = false
 var player_in_range = false
+
+signal on_died(exp_value: int)
 
 
 func _physics_process(_delta: float) -> void:
@@ -31,6 +34,7 @@ func _physics_process(_delta: float) -> void:
 func got_damaged():
 	health -= 1
 	if health <= 0:
+		on_died.emit(exp_value)
 		queue_free()
 	$SlimeAnimation.stop()
 	$SlimeAnimation.play("hurt")

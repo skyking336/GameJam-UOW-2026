@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://deictmrsb0lrp"]
+
+[ext_resource type="PackedScene" uid="uid://fdukv0suykvd" path="res://Weapon/Projectile.tscn" id="1_tjt3h"]
+[ext_resource type="Texture2D" uid="uid://e57re6b4unvm" path="res://SpriteAssets/fireball-Sheet.png" id="2_rbynx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbynx"]
+atlas = ExtResource("2_rbynx")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu3b6"]
+atlas = ExtResource("2_rbynx")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjmr0"]
+atlas = ExtResource("2_rbynx")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msx7s"]
+atlas = ExtResource("2_rbynx")
+region = Rect2(144, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23ds5"]
+atlas = ExtResource("2_rbynx")
+region = Rect2(192, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8ons"]
+atlas = ExtResource("2_rbynx")
+region = Rect2(240, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2kc45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbynx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu3b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjmr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msx7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23ds5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8ons")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Projectile" unique_id=647778702 instance=ExtResource("1_tjt3h")]
+
+[node name="Sprite" parent="." index="0" unique_id=231261866]
+position = Vector2(-17, -1)
+sprite_frames = SubResource("SpriteFrames_2kc45")
+frame_progress = 0.44300753
