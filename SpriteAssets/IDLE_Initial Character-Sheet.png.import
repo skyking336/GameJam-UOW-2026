@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blujx4i8jvpvm"
-path="res://.godot/imported/brick.png-77d98f5d32d031ca09e379b39ddb4c05.ctex"
+uid="uid://dfv1mhndwxen5"
+path="res://.godot/imported/IDLE_Initial Character-Sheet.png-89e2f4ca00c3cead65cc7e49864b5d5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/brick.png"
-dest_files=["res://.godot/imported/brick.png-77d98f5d32d031ca09e379b39ddb4c05.ctex"]
+source_file="res://SpriteAssets/IDLE_Initial Character-Sheet.png"
+dest_files=["res://.godot/imported/IDLE_Initial Character-Sheet.png-89e2f4ca00c3cead65cc7e49864b5d5c.ctex"]
 
 [params]
 

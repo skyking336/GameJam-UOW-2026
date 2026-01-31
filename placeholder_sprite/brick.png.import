@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyeeptqjb2wi"
-path="res://.godot/imported/coin.png-54d5e156d7891d9603a51f76f85b4fd9.ctex"
+uid="uid://blujx4i8jvpvm"
+path="res://.godot/imported/brick.png-748f2a3b88dfbcff6774ac47b7b4d2a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/coin.png"
-dest_files=["res://.godot/imported/coin.png-54d5e156d7891d9603a51f76f85b4fd9.ctex"]
+source_file="res://placeholder_sprite/brick.png"
+dest_files=["res://.godot/imported/brick.png-748f2a3b88dfbcff6774ac47b7b4d2a4.ctex"]
 
 [params]
 

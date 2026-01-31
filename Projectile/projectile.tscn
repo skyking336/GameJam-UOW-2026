@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dsi8q83sp4mhe"]
+
+[ext_resource type="Texture2D" uid="uid://c7wno4kdbaq8k" path="res://SpriteAssets/Shuriken_V1.png" id="1_a85iw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxf0c"]
+radius = 6.0
+
+[node name="projectile" type="Node2D" unique_id=911470133]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=575492674]
+texture = ExtResource("1_a85iw")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=947708627]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1904735295]
+shape = SubResource("CircleShape2D_qxf0c")
