@@ -44,7 +44,6 @@ func _on_normal_enemy_spawn_cooldown_timeout() -> void:
 
 func spawn_normal_wave():
 	normal_enemy_amount = random_normal_enemy_amount()
-	print(normal_enemy_amount)
 	for i in normal_enemy_amount:
 		spawn_normal_enemy()
 
@@ -76,7 +75,6 @@ func _on_speedy_spawn_cooldown_timeout() -> void:
 
 func spawn_speedy_wave():
 	speedy_amount = random_speedy_amount()
-	print(speedy_amount)
 	for i in speedy_amount:
 		spawn_speedy()
 
@@ -108,7 +106,6 @@ func _on_buffy_spawn_cooldown_timeout() -> void:
 
 func spawn_buffy_wave():
 	buffy_amount = random_buffy_amount()
-	print(buffy_amount)
 	for i in buffy_amount:
 		spawn_buffy()
 
@@ -139,7 +136,6 @@ func _on_fire_mage_spawn_cooldown_timeout() -> void:
 
 func spawn_fire_mage_wave():
 	fire_mage_amount = random_fire_mage_amount()
-	print(fire_mage_amount)
 	for i in fire_mage_amount:
 		spawn_fire_mage()
 
@@ -170,7 +166,6 @@ func _on_ice_mage_spawn_cooldown_timeout() -> void:
 
 func spawn_ice_mage_wave():
 	ice_mage_amount = random_ice_mage_amount()
-	print(ice_mage_amount)
 	for i in ice_mage_amount:
 		spawn_ice_mage()
 

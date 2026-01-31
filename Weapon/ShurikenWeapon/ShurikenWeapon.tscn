@@ -7,3 +7,6 @@
 [node name="ShurikenWeapon" unique_id=611963234 instance=ExtResource("1_njukp")]
 script = ExtResource("2_u3dc2")
 projectile_scene = ExtResource("3_5twtw")
+
+[node name="Timer" parent="." index="0" unique_id=28950501]
+wait_time = 0.1
