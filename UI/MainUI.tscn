@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://iqwtkdukiaui"]
+
+[ext_resource type="Theme" uid="uid://dlvnhi6ls1a30" path="res://MainTheme.tres" id="1_xv1u1"]
+
+[sub_resource type="Gradient" id="Gradient_xv1u1"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wwh41"]
+gradient = SubResource("Gradient_xv1u1")
+width = 16
+height = 16
+
+[node name="MainUI" type="CanvasLayer" unique_id=813658371]
+
+[node name="MainMargin" type="MarginContainer" parent="." unique_id=148515236]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xv1u1")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MainMargin" unique_id=2088877013]
+layout_mode = 2
+columns = 2
+
+[node name="ExpLabel" type="Label" parent="MainMargin/GridContainer" unique_id=974593405]
+layout_mode = 2
+text = "EXP"
+
+[node name="ExpLevel" type="ProgressBar" parent="MainMargin/GridContainer" unique_id=2027470902]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ExpLevel"
+value = 20.0
+
+[node name="HPLabel" type="Label" parent="MainMargin/GridContainer" unique_id=1728575117]
+layout_mode = 2
+text = "HP"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMargin/GridContainer" unique_id=347285671]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMargin/GridContainer/HBoxContainer" unique_id=1188942189]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 300
+
+[node name="HPLevel" type="ProgressBar" parent="MainMargin/GridContainer/HBoxContainer/MarginContainer" unique_id=1909737340]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"HPLevel"
+value = 80.0
+
+[node name="AbilitiesLabel" type="Label" parent="MainMargin/GridContainer/HBoxContainer" unique_id=463577201]
+layout_mode = 2
+text = "Abilities: "
+
+[node name="AbilityCont1" type="TextureRect" parent="MainMargin/GridContainer/HBoxContainer" unique_id=197397428]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_wwh41")
+
+[node name="AbilityCont2" type="TextureRect" parent="MainMargin/GridContainer/HBoxContainer" unique_id=1590925476]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_wwh41")
+
+[node name="AbilityCont3" type="TextureRect" parent="MainMargin/GridContainer/HBoxContainer" unique_id=974110106]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_wwh41")

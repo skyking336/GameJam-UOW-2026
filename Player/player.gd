@@ -20,7 +20,6 @@ func got_damaged(damage: int) -> void:
 
 
 func inc_experience(ex: int) -> void:
-	print("Gained " + str(ex) + " experience!")
 	experience += ex
 	$ExperienceSystem.check_level_up(experience)
 

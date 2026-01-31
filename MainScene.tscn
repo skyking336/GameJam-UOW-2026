@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1u7c5xyji3pn" path="res://main_scene.gd" id="1_rf2cd"]
 [ext_resource type="Texture2D" uid="uid://dnb126rhywbaw" path="res://placeholder_sprite/world_tileset.png" id="1_uxrcv"]
+[ext_resource type="PackedScene" uid="uid://iqwtkdukiaui" path="res://UI/MainUI.tscn" id="4_rf2cd"]
 [ext_resource type="PackedScene" uid="uid://x75nmxvaygmy" path="res://Player/Player.tscn" id="4_uxrcv"]
 [ext_resource type="PackedScene" uid="uid://dbhl0iway82yg" path="res://EnemySpawner/enemy_spawner.tscn" id="5_rf2cd"]
 
@@ -138,7 +139,7 @@ texture = ExtResource("1_uxrcv")
 [sub_resource type="TileSet" id="TileSet_sasra"]
 sources/0 = SubResource("TileSetAtlasSource_rf2cd")
 
-[node name="TestScene" type="Node2D" unique_id=1218715016 groups=["MainScene"]]
+[node name="MainScene" type="Node2D" unique_id=1218715016 groups=["MainScene"]]
 process_mode = 3
 script = ExtResource("1_rf2cd")
 
@@ -154,3 +155,5 @@ position = Vector2(2, 1)
 [node name="EnemySpawner" parent="Player" unique_id=339057514 instance=ExtResource("5_rf2cd")]
 process_mode = 1
 position = Vector2(-6, -5)
+
+[node name="MainUI" parent="." unique_id=813658371 instance=ExtResource("4_rf2cd")]

@@ -32,7 +32,7 @@ func _ready():
 
 func _process(_delta):
 	global_position = player.global_position
-	
+
 #---------------------------------------------------------------------------------------------------------------------------------------------
 #This part is only for normal enemy
 
@@ -52,12 +52,9 @@ func spawn_normal_enemy():
 	$Path2D/MobSpawnArea.progress_ratio = randf()
 	enemy.global_position = $Path2D/MobSpawnArea.global_position
 	#Hard Coded Part: new added child must be staright under the main scene
-	if enemy == null:
-		print("theres nothing in enemy")
-	else:
-		get_tree().get_first_node_in_group("MainScene").add_child(enemy)
-	
-	
+	get_tree().get_first_node_in_group("MainScene").add_child(enemy)
+
+
 func random_normal_enemy_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
 	var weight = normal_enemy_spawn_curve.sample(random_spawn_amount) # Get the Y value (the "rarity")
@@ -83,10 +80,7 @@ func spawn_speedy():
 	$Path2D/MobSpawnArea.progress_ratio = randf()
 	enemy.global_position = $Path2D/MobSpawnArea.global_position
 	#Hard Coded Part: new added child must be staright under the main scene
-	if enemy == null:
-		print("theres nothing in enemy")
-	else:
-		get_tree().get_first_node_in_group("MainScene").add_child(enemy)
+	get_tree().get_first_node_in_group("MainScene").add_child(enemy)
 
 func random_speedy_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
@@ -113,10 +107,7 @@ func spawn_buffy():
 	var enemy = enemies[2].instantiate()
 	$Path2D/MobSpawnArea.progress_ratio = randf()
 	enemy.global_position = $Path2D/MobSpawnArea.global_position
-	if enemy == null:
-		print("theres nothing in enemy")
-	else:
-		get_tree().get_first_node_in_group("MainScene").add_child(enemy)
+	get_tree().get_first_node_in_group("MainScene").add_child(enemy)
 
 func random_buffy_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
@@ -143,10 +134,7 @@ func spawn_fire_mage():
 	var enemy = enemies[3].instantiate()
 	$Path2D/MobSpawnArea.progress_ratio = randf()
 	enemy.global_position = $Path2D/MobSpawnArea.global_position
-	if enemy == null:
-		print("theres nothing in enemy")
-	else:
-		get_tree().get_first_node_in_group("MainScene").add_child(enemy)
+	get_tree().get_first_node_in_group("MainScene").add_child(enemy)
 
 func random_fire_mage_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
@@ -173,10 +161,7 @@ func spawn_ice_mage():
 	var enemy = enemies[4].instantiate()
 	$Path2D/MobSpawnArea.progress_ratio = randf()
 	enemy.global_position = $Path2D/MobSpawnArea.global_position
-	if enemy == null:
-		print("theres nothing in enemy")
-	else:
-		get_tree().get_first_node_in_group("MainScene").add_child(enemy)
+	get_tree().get_first_node_in_group("MainScene").add_child(enemy)
 
 func random_ice_mage_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
