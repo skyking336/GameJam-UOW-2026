@@ -20,6 +20,7 @@ var fire_mage_amount
 var ice_mage_amount
 
 @onready var player = get_tree().get_first_node_in_group(player_group)
+@onready var main_scene = get_tree().get_first_node_in_group("MainScene")
 
 var rng = RandomNumberGenerator.new()
 
@@ -55,7 +56,8 @@ func spawn_normal_enemy():
 	if enemy == null:
 		print("theres nothing in enemy")
 	else:
-		get_tree().get_first_node_in_group("MainScene").add_child(enemy)
+		main_scene.add_child(enemy)
+		enemy.broadcast_character_name.connect(main_scene.set_target_name)
 	
 	
 func random_normal_enemy_amount():
@@ -86,7 +88,8 @@ func spawn_speedy():
 	if enemy == null:
 		print("theres nothing in enemy")
 	else:
-		get_tree().get_first_node_in_group("MainScene").add_child(enemy)
+		main_scene.add_child(enemy)
+		enemy.broadcast_character_name.connect(main_scene.set_target_name)
 
 func random_speedy_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
@@ -116,7 +119,8 @@ func spawn_buffy():
 	if enemy == null:
 		print("theres nothing in enemy")
 	else:
-		get_tree().get_first_node_in_group("MainScene").add_child(enemy)
+		main_scene.add_child(enemy)
+		enemy.broadcast_character_name.connect(main_scene.set_target_name)
 
 func random_buffy_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
@@ -146,7 +150,8 @@ func spawn_fire_mage():
 	if enemy == null:
 		print("theres nothing in enemy")
 	else:
-		get_tree().get_first_node_in_group("MainScene").add_child(enemy)
+		main_scene.add_child(enemy)
+		enemy.broadcast_character_name.connect(main_scene.set_target_name)
 
 func random_fire_mage_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
@@ -176,10 +181,11 @@ func spawn_ice_mage():
 	if enemy == null:
 		print("theres nothing in enemy")
 	else:
-		get_tree().get_first_node_in_group("MainScene").add_child(enemy)
+		main_scene.add_child(enemy)
+		enemy.broadcast_character_name.connect(main_scene.set_target_name)
 
 func random_ice_mage_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
 	var weight = ice_mage_spawn_curve.sample(random_spawn_amount) # Get the Y value (the "rarity")
-	# Map the result to your 4-20 range
+	# Map the result to your 4-20 rangea
 	return int(lerp(min_ice_mage, max_ice_mage, random_spawn_amount * weight))

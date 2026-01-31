@@ -9,6 +9,9 @@ extends CharacterBody2D
 
 @onready var player = get_tree().get_first_node_in_group(player_group)
 
+@export var  character_name = "Enemy"
+signal broadcast_character_name(name : String)
+
 var attacked = false
 var player_in_range = false
 
@@ -35,22 +38,24 @@ func _physics_process(_delta: float) -> void:
 			
 func fade_out_on_dying():
 	var tween = get_tree().create_tween()
-	tween.tween_property($EnemyAnimation, "modulate", Color.RED, 0.1)
-	tween.tween_property($EnemyAnimation, "scale", Vector2(), 0.1)
+	tween.tween_property($EnemyAnimation, "modulate", Color.RED, 0.2)
+	tween.tween_property($EnemyAnimation, "modulate:a", 0.0 , 0.5)
 	tween.tween_callback(queue_free)
 
 func got_damaged():
-	health -= 1
-	if health <= 0:
-		on_died.emit(exp_value)
-		Alive = false
-		fade_out_on_dying()
-		player.inc_experience(exp_value)
-			
-	$EnemyAnimation.stop()
-	$EnemyAnimation.play("hurt")
-	await $EnemyAnimation.animation_finished
-	$EnemyAnimation.play("idle")
+	if Alive == true:
+		health -= 1
+		if health <= 0:
+			$HitBoxes/AttackCollision.set_deferred("disabled", true)
+			on_died.emit(exp_value)
+			Alive = false
+			fade_out_on_dying()
+			player.inc_experience(exp_value)
+
+		$EnemyAnimation.stop()
+		$EnemyAnimation.play("hurt")
+		await $EnemyAnimation.animation_finished
+		$EnemyAnimation.play("idle")
 
 
 func _on_attack_range_body_entered(body: Node2D) -> void:
@@ -62,6 +67,8 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group(player_group):
 		player_in_range = false
 
-
 func _on_normal_attack_cooldown_timeout() -> void:
 	attacked = false
+
+func _on_hit_boxes_mouse_entered() -> void:
+	broadcast_character_name.emit(character_name)

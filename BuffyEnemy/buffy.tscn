@@ -99,6 +99,7 @@ SPEED = 25.0
 basic_damage = null
 health = null
 exp_value = null
+character_name = "Buffy"
 
 [node name="EnemyAnimation" parent="." index="0" unique_id=786765966]
 sprite_frames = SubResource("SpriteFrames_rr8ty")
