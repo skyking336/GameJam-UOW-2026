@@ -50,7 +50,7 @@ script = ExtResource("1_4gyqm")
 player_group = "Player"
 
 [node name="SlimeAnimation" type="AnimatedSprite2D" parent="." unique_id=786765966 groups=["Enemies"]]
-position = Vector2(58, 79)
+position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_3yqyl")
 animation = &"idle"
 autoplay = "idle"
