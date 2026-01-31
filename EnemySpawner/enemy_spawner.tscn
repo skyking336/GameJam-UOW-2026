@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://dbhl0iway82yg"]
 
 [ext_resource type="Script" uid="uid://c7pdt6420svyi" path="res://EnemySpawner/enemy_spawner.gd" id="1_t8uj2"]
-[ext_resource type="PackedScene" uid="uid://c82rpr3lbn83q" path="res://Enemy 1/enemy.tscn" id="2_26bmk"]
-[ext_resource type="PackedScene" uid="uid://cttpiifm5tb2a" path="res://Enemy2/enemy2.tscn" id="3_m0m3j"]
+[ext_resource type="PackedScene" uid="uid://c82rpr3lbn83q" path="res://Enemy/enemy.tscn" id="2_26bmk"]
 
 [sub_resource type="Curve2D" id="Curve2D_r7hu2"]
 _data = {
@@ -12,16 +11,13 @@ point_count = 5
 
 [node name="EnemySpawner" type="Node2D" unique_id=339057514]
 script = ExtResource("1_t8uj2")
-Enemy1 = ExtResource("2_26bmk")
-Enemy2 = ExtResource("3_m0m3j")
+enemies = Array[PackedScene]([ExtResource("2_26bmk")])
 
 [node name="Path2D" type="Path2D" parent="." unique_id=1725134378]
 curve = SubResource("Curve2D_r7hu2")
 
 [node name="MobSpawnArea" type="PathFollow2D" parent="Path2D" unique_id=1149142565]
 position = Vector2(-384, 256)
-
-[node name="EnemySpawnLocation" type="Marker2D" parent="." unique_id=2040749649]
 
 [node name="MobSpawnCooldown" type="Timer" parent="." unique_id=2026400366]
 wait_time = 0.5

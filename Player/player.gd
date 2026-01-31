@@ -12,4 +12,3 @@ func _physics_process(_delta: float) -> void:
 
 func got_damaged(damage: int) -> void:
 	health -= damage
-	print("Player got damaged! Current health: %d" % health)
