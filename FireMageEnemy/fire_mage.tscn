@@ -82,32 +82,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bkr6"]
+radius = 14.0
+height = 46.0
+
 [node name="FireMage" unique_id=1361306782 instance=ExtResource("1_ptr8x")]
 script = ExtResource("2_1bkr6")
 SPEED = 25.0
 MageFireBall = ExtResource("3_1bkr6")
+character_name = "FireMage"
 
 [node name="EnemyAnimation" parent="." index="0" unique_id=786765966]
 sprite_frames = SubResource("SpriteFrames_ld2ni")
 frame_progress = 0.36763424
 
-[node name="AttackRange" parent="." index="1" unique_id=1082727073]
-visible = false
-collision_layer = 2
-collision_mask = 2
+[node name="AttackCollision" parent="AttackRange" parent_id_path=PackedInt32Array(1082727073) index="0" unique_id=893530688]
+position = Vector2(0, -9)
 
-[node name="AttackCollision" parent="AttackRange" index="0" unique_id=893530688]
-visible = false
-position = Vector2(-1, -11)
-
-[node name="HitBoxes" parent="." index="2" unique_id=415184857]
-visible = false
-
-[node name="AttackCollision" parent="HitBoxes" index="0" unique_id=216106609]
-visible = false
-
-[node name="CollisionShape2D" parent="." index="3" unique_id=694013128]
-visible = false
+[node name="AttackCollision" parent="HitBoxes" parent_id_path=PackedInt32Array(415184857) index="0" unique_id=216106609]
+position = Vector2(0, -9)
+shape = SubResource("CapsuleShape2D_1bkr6")
 
 [node name="FireBallCooldown" type="Timer" parent="." index="5" unique_id=1353844751]
 wait_time = 6.0

@@ -13,6 +13,7 @@ var health: int = max_health
 var experience: int = 0
 var invincible = false
 var is_moving = false
+var is_hurt = false
 
 var current_level: int = 1
 var level_up_threshold: int = 200
@@ -41,26 +42,27 @@ func _ready() -> void:
 	ability_updated.emit(abilities)
 
 
-
 func _physics_process(_delta: float) -> void:
 	var input_direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if input_direction != Vector2.ZERO:
-		change_to_walking.emit(current_animation)
+		if is_hurt == false:
+			change_to_walking.emit(current_animation)
 		if input_direction == Vector2.RIGHT:
 			flip_h.emit(false,current_animation)
 		if input_direction == Vector2.LEFT:
 			flip_h.emit(true,current_animation)
 		velocity = input_direction * SPEED
 		move_and_slide()
-	else:
+	elif is_hurt == false:
 		change_to_idle.emit(current_animation)
 
 func got_damaged(damage: int) -> void:
 	if invincible:
 		return
 	health -= damage
+	is_hurt = true
+	change_to_hurt.emit(current_animation)
 	hp_update.emit(health)
-
 
 func inc_experience(ex: int) -> void:
 	experience += ex
@@ -88,3 +90,7 @@ func inc_experience(ex: int) -> void:
 
 func _on_experience_system_exp_threshold_updated(new_threshold: int) -> void:
 	exp_threshold_updated.emit(new_threshold)
+
+
+func _on_animation_system_hurt_animation_finished() -> void:
+	is_hurt = false

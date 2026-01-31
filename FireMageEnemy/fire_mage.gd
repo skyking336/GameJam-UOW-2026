@@ -92,8 +92,10 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 func _on_normal_attack_cooldown_timeout() -> void:
 	attacked = false
 
+
 func _on_hit_boxes_mouse_entered() -> void:
 	broadcast_character_name.emit(character_name)
+	print("somrthing enteref")
 	
 func _on_fire_ball_cooldown_timeout() -> void:
 	shot_fireball = false

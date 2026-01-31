@@ -63,7 +63,6 @@ func _on_attack_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group(player_group):
 		player_in_range = true
 
-
 func _on_attack_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group(player_group):
 		player_in_range = false

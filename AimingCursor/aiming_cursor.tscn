@@ -16,6 +16,8 @@ texture = ExtResource("1_5y3s2")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2111588425]
 process_mode = 3
+collision_layer = 128
+collision_mask = 128
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2000051158]
 process_mode = 3
