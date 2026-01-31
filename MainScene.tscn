@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://by0b6f1ioaqyg"]
 
 [ext_resource type="Texture2D" uid="uid://dnb126rhywbaw" path="res://placeholder_sprite/world_tileset.png" id="1_uxrcv"]
-[ext_resource type="PackedScene" uid="uid://c82rpr3lbn83q" path="res://Enemy/enemy.tscn" id="2_uxrcv"]
 [ext_resource type="PackedScene" uid="uid://x75nmxvaygmy" path="res://Player/Player.tscn" id="4_uxrcv"]
 [ext_resource type="PackedScene" uid="uid://dbhl0iway82yg" path="res://EnemySpawner/enemy_spawner.tscn" id="5_rf2cd"]
 
@@ -136,7 +135,7 @@ texture = ExtResource("1_uxrcv")
 3:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_sasra"]
-sources/0 = SubResource("TileSetAtlasSource_ia1lp")
+sources/0 = SubResource("TileSetAtlasSource_rf2cd")
 
 [node name="TestScene" type="Node2D" unique_id=1218715016]
 
@@ -145,8 +144,8 @@ tile_map_data = PackedByteArray("AADy/+b/AAABAAkAAADy/+f/AAABAAkAAADy/+j/AAABAAk
 tile_set = SubResource("TileSet_sasra")
 metadata/_edit_lock_ = true
 
-[node name="Enemy" parent="." unique_id=1361306782 instance=ExtResource("2_uxrcv")]
-position = Vector2(305, 169)
+[node name="Player" parent="." unique_id=543276265 groups=["Player"] instance=ExtResource("4_uxrcv")]
+position = Vector2(320, 179)
 
-[node name="Player" parent="." unique_id=543276265 groups=["Player"] instance=ExtResource("3_rpqi1")]
-position = Vector2(212, 171)
+[node name="EnemySpawner" parent="Player" unique_id=339057514 instance=ExtResource("5_rf2cd")]
+position = Vector2(-6, -5)
