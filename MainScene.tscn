@@ -190,3 +190,10 @@ position = Vector2(2, 1)
 [node name="EnemySpawner" parent="Player" unique_id=339057514 instance=ExtResource("5_rf2cd")]
 process_mode = 1
 position = Vector2(-6, -5)
+
+[node name="MainUI" parent="." unique_id=813658371 instance=ExtResource("4_rf2cd")]
+
+[connection signal="ability_updated" from="Player" to="MainUI" method="_on_player_ability_updated"]
+[connection signal="exp_threshold_updated" from="Player" to="MainUI" method="_on_player_exp_threshold_updated"]
+[connection signal="exp_update" from="Player" to="MainUI" method="_on_player_exp_update"]
+[connection signal="hp_update" from="Player" to="MainUI" method="_on_player_hp_update"]

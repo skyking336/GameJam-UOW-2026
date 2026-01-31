@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://iqwtkdukiaui"]
+
+[ext_resource type="Script" uid="uid://dex1rkm5y2fjp" path="res://UI/main_ui.gd" id="1_wwh41"]
+[ext_resource type="Theme" uid="uid://dlvnhi6ls1a30" path="res://MainTheme.tres" id="1_xv1u1"]
+[ext_resource type="Texture2D" uid="uid://bftntekp8my1y" path="res://UI/Fire_Ui.png" id="3_8cqdv"]
+[ext_resource type="Texture2D" uid="uid://bdxl6hlp0s4ja" path="res://UI/QuestionMarks_ui.png" id="3_wa2eh"]
+[ext_resource type="Texture2D" uid="uid://suvk1uhuud8b" path="res://UI/Frozen_ui.png" id="4_475mu"]
+[ext_resource type="Texture2D" uid="uid://8wenytkeq2he" path="res://UI/Poison Bottle_uii.png" id="5_uqb74"]
+
+[node name="MainUI" type="CanvasLayer" unique_id=813658371]
+script = ExtResource("1_wwh41")
+empty_ability_icon = ExtResource("3_wa2eh")
+fire_ability_icon = ExtResource("3_8cqdv")
+ice_ability_icon = ExtResource("4_475mu")
+poison_ability_icon = ExtResource("5_uqb74")
+
+[node name="MainMargin" type="MarginContainer" parent="." unique_id=148515236]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xv1u1")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MainMargin" unique_id=2088877013]
+layout_mode = 2
+columns = 2
+
+[node name="ExpLabel" type="Label" parent="MainMargin/GridContainer" unique_id=974593405]
+layout_mode = 2
+text = "EXP"
+
+[node name="ExpLevel" type="ProgressBar" parent="MainMargin/GridContainer" unique_id=2027470902]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ExpLevel"
+value = 20.0
+
+[node name="HPLabel" type="Label" parent="MainMargin/GridContainer" unique_id=1728575117]
+layout_mode = 2
+text = "HP"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMargin/GridContainer" unique_id=347285671]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMargin/GridContainer/HBoxContainer" unique_id=1188942189]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 300
+
+[node name="HPLevel" type="ProgressBar" parent="MainMargin/GridContainer/HBoxContainer/MarginContainer" unique_id=1909737340]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+theme_type_variation = &"HPLevel"
+value = 80.0
+
+[node name="AbilitiesLabel" type="Label" parent="MainMargin/GridContainer/HBoxContainer" unique_id=463577201]
+layout_mode = 2
+text = "Abilities: "
+
+[node name="AbilityIcon1" type="TextureRect" parent="MainMargin/GridContainer/HBoxContainer" unique_id=197397428]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_wa2eh")
+
+[node name="AbilityIcon2" type="TextureRect" parent="MainMargin/GridContainer/HBoxContainer" unique_id=1590925476]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_wa2eh")
+
+[node name="AbilityIcon3" type="TextureRect" parent="MainMargin/GridContainer/HBoxContainer" unique_id=974110106]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_wa2eh")

@@ -33,7 +33,7 @@ func _ready():
 
 func _process(_delta):
 	global_position = player.global_position
-	
+
 #---------------------------------------------------------------------------------------------------------------------------------------------
 #This part is only for normal enemy
 
@@ -187,5 +187,5 @@ func spawn_ice_mage():
 func random_ice_mage_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
 	var weight = ice_mage_spawn_curve.sample(random_spawn_amount) # Get the Y value (the "rarity")
-	# Map the result to your 4-20 rangea
+	# Map the result to your 4-20 range
 	return int(lerp(min_ice_mage, max_ice_mage, random_spawn_amount * weight))
