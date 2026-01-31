@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ywwepag3t7f3"]
+
+[ext_resource type="Script" uid="uid://ctlgqldcv7aem" path="res://Weapon/weapon.gd" id="1_fwiay"]
+
+[node name="Weapon" type="Node" unique_id=602758190]
+script = ExtResource("1_fwiay")
+
+[node name="Timer" type="Timer" parent="." unique_id=1173765527]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
