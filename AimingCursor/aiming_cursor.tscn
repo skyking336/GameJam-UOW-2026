@@ -3,8 +3,20 @@
 [ext_resource type="Script" uid="uid://dql1av1e1ih6h" path="res://AimingCursor/aiming_cursor.gd" id="1_0rgst"]
 [ext_resource type="Texture2D" uid="uid://cfrwoqwhrstrl" path="res://SpriteAssets/aiming_cursor.png" id="1_5y3s2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rgst"]
+size = Vector2(0, 0)
+
 [node name="AimingCursor" type="Node2D" unique_id=491115966]
+process_mode = 3
 script = ExtResource("1_0rgst")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1246330991]
+process_mode = 3
 texture = ExtResource("1_5y3s2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2111588425]
+process_mode = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2000051158]
+process_mode = 3
+shape = SubResource("RectangleShape2D_0rgst")
