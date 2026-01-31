@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://by0b6f1ioaqyg"]
 
-[ext_resource type="Texture2D" uid="uid://dnb126rhywbaw" path="res://sprites/world_tileset.png" id="1_rpqi1"]
+[ext_resource type="Texture2D" uid="uid://dnb126rhywbaw" path="res://placeholder_sprite/world_tileset.png" id="1_uxrcv"]
 [ext_resource type="PackedScene" uid="uid://c82rpr3lbn83q" path="res://Enemy/enemy.tscn" id="2_uxrcv"]
-[ext_resource type="PackedScene" uid="uid://x75nmxvaygmy" path="res://Player/Player.tscn" id="3_rpqi1"]
+[ext_resource type="PackedScene" uid="uid://x75nmxvaygmy" path="res://Player/Player.tscn" id="4_uxrcv"]
+[ext_resource type="PackedScene" uid="uid://dbhl0iway82yg" path="res://EnemySpawner/enemy_spawner.tscn" id="5_rf2cd"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ia1lp"]
-texture = ExtResource("1_rpqi1")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rf2cd"]
+texture = ExtResource("1_uxrcv")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

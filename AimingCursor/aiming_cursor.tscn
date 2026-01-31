@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://brlj34cctrmr4"]
+
+[ext_resource type="Script" uid="uid://dql1av1e1ih6h" path="res://AimingCursor/aiming_cursor.gd" id="1_0rgst"]
+[ext_resource type="Texture2D" uid="uid://cfrwoqwhrstrl" path="res://SpriteAssets/aiming_cursor.png" id="1_5y3s2"]
+
+[node name="AimingCursor" type="Node2D" unique_id=491115966]
+script = ExtResource("1_0rgst")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1246330991]
+texture = ExtResource("1_5y3s2")

@@ -16,10 +16,11 @@ func _ready() -> void:
 		print(player)
 	else:
 		print("theres nothingggggg")
-
+		print(get_tree())
+	
 func _physics_process(delta: float) -> void:
 	var player_direction = (player.position - position).normalized()
-	velocity =  player_direction * SPEED * delta
+	velocity =  player_direction * SPEED 
 	move_and_slide()
 	if player_direction.x < 0:
 		$SlimeAnimation.flip_h = true
@@ -27,13 +28,20 @@ func _physics_process(delta: float) -> void:
 	else:
 		$SlimeAnimation.flip_h = false
 		$AttackRange/AttackCollision.position = abs($AttackRange/AttackCollision.position)
-
 	if attacked == false and player_in_range == true:
 		player.got_damaged(basic_damage)
 		attacked = true
 		$NormalAttackCooldown.start()
 
-
+func got_damaged():
+	health -= 1
+	if health <= 0:
+		queue_free()
+	$SlimeAnimation.stop()
+	$SlimeAnimation.play("hurt")
+	await $SlimeAnimation.animation_finished
+	$SlimeAnimation.play("idle")
+		
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group(player_group):
 		player_in_range = true
