@@ -144,9 +144,7 @@ tile_map_data = PackedByteArray("AADy/+b/AAABAAkAAADy/+f/AAABAAkAAADy/+j/AAABAAk
 tile_set = SubResource("TileSet_sasra")
 metadata/_edit_lock_ = true
 
-[node name="Enemies" type="Node2D" parent="." unique_id=1953105018]
-
-[node name="Enemy" parent="Enemies" unique_id=1361306782 instance=ExtResource("2_uxrcv")]
+[node name="Enemy" parent="." unique_id=1361306782 instance=ExtResource("2_uxrcv")]
 position = Vector2(305, 169)
 
 [node name="Player" parent="." unique_id=543276265 groups=["Player"] instance=ExtResource("3_rpqi1")]
