@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ctlgqldcv7aem" path="res://Weapon/weapon.gd" id="1_fwiay"]
 
-[node name="Weapon" type="Node" unique_id=602758190]
+[node name="Weapon" type="Node2D" unique_id=611963234]
 script = ExtResource("1_fwiay")
 
-[node name="Timer" type="Timer" parent="." unique_id=1173765527]
+[node name="Timer" type="Timer" parent="." unique_id=28950501]
+wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

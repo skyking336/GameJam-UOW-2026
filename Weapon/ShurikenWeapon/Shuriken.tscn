@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bbic4mjhq6chj"]
+
+[ext_resource type="PackedScene" uid="uid://fdukv0suykvd" path="res://Weapon/Projectile.tscn" id="1_35dm7"]
+[ext_resource type="Texture2D" uid="uid://c7wno4kdbaq8k" path="res://SpriteAssets/Shuriken_V1.png" id="2_itp7j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_itp7j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_itp7j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Projectile" unique_id=647778702 instance=ExtResource("1_35dm7")]
+
+[node name="Sprite" parent="." index="1" unique_id=231261866]
+sprite_frames = SubResource("SpriteFrames_itp7j")

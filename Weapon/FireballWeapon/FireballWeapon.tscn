@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://born4n0nh0jmu"]
+
+[ext_resource type="PackedScene" uid="uid://ywwepag3t7f3" path="res://Weapon/Weapon.tscn" id="1_kawb7"]
+[ext_resource type="Script" uid="uid://bfd4y7d5pxuiv" path="res://Weapon/FireballWeapon/fireball_weapon.gd" id="2_t3c7k"]
+[ext_resource type="PackedScene" uid="uid://deictmrsb0lrp" path="res://Weapon/FireballWeapon/Fireball.tscn" id="3_frvin"]
+
+[node name="Weapon" unique_id=611963234 instance=ExtResource("1_kawb7")]
+script = ExtResource("2_t3c7k")
+projectile_scene = ExtResource("3_frvin")
+projectile_speed = 700.0
+
+[node name="Timer" parent="." index="0" unique_id=28950501]
+wait_time = 0.6
