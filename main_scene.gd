@@ -2,6 +2,7 @@ extends Node2D
 
 var pause_times
 var target_name
+var target_tree_name
 var player_evolving = false
 @onready var player = get_tree().get_first_node_in_group("Player")
 
@@ -28,10 +29,16 @@ func pause_scene():
 
 func set_target_name(enemy_name):
 	target_name = enemy_name
-	print(target_name)
-
+	
 func set_name_cancel():
 	target_name = null
+
+func set_target_tree_name(enemy_tree_name):
+	target_tree_name = enemy_tree_name
+	print(target_tree_name)
+
+func set_target_tree_name_cancel():
+	target_tree_name = null
 
 func evolve_player():
 	player_evolving = true
