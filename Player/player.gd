@@ -154,5 +154,3 @@ func evolve(new_form: String) -> void:
 	if ENEMY_ABILITY_MAP.has(new_form):
 		var new_ability = ENEMY_ABILITY_MAP[new_form]
 		add_ability(new_ability)
-
-	invincible = false
