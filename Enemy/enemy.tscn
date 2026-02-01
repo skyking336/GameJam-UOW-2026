@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c40x5vxmpn66f" path="res://Enemy/enemy.gd" id="1_4gyqm"]
 [ext_resource type="Texture2D" uid="uid://dc8q7jupwd5y7" path="res://Enemy/Character_normal/Hurt_normal Character-Sheet.png" id="2_am0pq"]
 [ext_resource type="Texture2D" uid="uid://brejsvu4ja6v4" path="res://Enemy/Character_normal/Walking_normal Character-Sheet.png" id="3_eqilm"]
+[ext_resource type="PackedScene" uid="uid://dqfq4j7s2u0q5" path="res://arrow.tscn" id="4_eqilm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ncf7h"]
 atlas = ExtResource("2_am0pq")
@@ -94,7 +95,6 @@ collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_4gyqm")
 SPEED = 50.0
-player_group = "Player"
 
 [node name="EnemyAnimation" type="AnimatedSprite2D" parent="." unique_id=786765966 groups=["Enemies"]]
 z_index = 1
@@ -126,6 +126,8 @@ position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_am0pq")
 
 [node name="NormalAttackCooldown" type="Timer" parent="." unique_id=1287848473]
+
+[node name="Arrow" parent="." unique_id=640144274 instance=ExtResource("4_eqilm")]
 
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]

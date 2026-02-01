@@ -6,6 +6,9 @@ var target_tree_name
 var player_evolving = false
 @onready var player = get_tree().get_first_node_in_group("Player")
 
+signal broadcast_player_is_evolving
+signal broadcast_player_not_evolving
+
 func _ready():
 	if player == null:
 		print("mainscene did not found player")
@@ -21,6 +24,7 @@ func _input(event):
 				print("player didnt select")
 			else:
 				player_evolving = false
+				broadcast_player_not_evolving.emit()
 				player.current_animation = target_name
 				player.emit_signal("hide_no_using", target_name)
 				pause_scene()
@@ -31,21 +35,21 @@ func pause_scene():
 	
 func set_target_name(enemy_name):
 	target_name = enemy_name
+	print(target_name)
 
 func set_name_cancel():
 	target_name = null
 
 func set_target_tree_name(enemy_tree_name):
 	target_tree_name = enemy_tree_name
-	print(target_tree_name)
+	
 
 func set_target_tree_name_cancel():
 	target_tree_name = null
 
-
-
 func evolve_player():
 	player_evolving = true
+	broadcast_player_is_evolving.emit()
 
 
 func game_won():
