@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cxu7h6q0ahjo7"]
+
+[ext_resource type="PackedScene" uid="uid://utu50q5yl7j6" path="res://Weapon/Projectile.tscn" id="1_qooiw"]
+[ext_resource type="Texture2D" uid="uid://bhjtpcfh6p6vt" path="res://IceMageEnemy/Ice shoot-Sheet.png" id="2_pwlee"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgdx2"]
+atlas = ExtResource("2_pwlee")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p10f"]
+atlas = ExtResource("2_pwlee")
+region = Rect2(48, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7ot0"]
+atlas = ExtResource("2_pwlee")
+region = Rect2(96, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sntem"]
+atlas = ExtResource("2_pwlee")
+region = Rect2(144, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djs1x"]
+atlas = ExtResource("2_pwlee")
+region = Rect2(192, 0, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1g1c"]
+atlas = ExtResource("2_pwlee")
+region = Rect2(240, 0, 48, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nrai2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgdx2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6p10f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7ot0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sntem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djs1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1g1c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Iceball" unique_id=647778702 instance=ExtResource("1_qooiw")]
+
+[node name="Sprite" parent="." index="0" unique_id=231261866]
+position = Vector2(-11, 0)
+sprite_frames = SubResource("SpriteFrames_nrai2")
+autoplay = "default"
+frame_progress = 0.82855815
