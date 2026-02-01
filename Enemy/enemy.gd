@@ -12,7 +12,7 @@ class_name Enemy
 
 @export var  character_name = "Enemy"
 signal broadcast_character_name(name : String)
-
+signal name_broadcast_cancel
 
 var attacked = false
 var player_in_range = false
@@ -73,3 +73,7 @@ func _on_normal_attack_cooldown_timeout() -> void:
 
 func _on_hit_boxes_mouse_entered() -> void:
 	broadcast_character_name.emit(character_name)
+	
+func _on_hit_boxes_mouse_exited() -> void:
+	print("mouse exited")
+	name_broadcast_cancel.emit()

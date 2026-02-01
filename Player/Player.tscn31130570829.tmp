@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://x75nmxvaygmy"]
 
 [ext_resource type="Script" uid="uid://bd7bp7cdd1tp5" path="res://Player/player.gd" id="1_3qydi"]
-[ext_resource type="Script" path="res://Player/animation_system.gd" id="2_3mea3"]
+[ext_resource type="Script" uid="uid://dc6v6bjuo0xus" path="res://Player/animation_system.gd" id="2_3mea3"]
 [ext_resource type="Texture2D" uid="uid://dfv1mhndwxen5" path="res://SpriteAssets/IDLE_Initial Character-Sheet.png" id="2_q3lat"]
 [ext_resource type="Texture2D" uid="uid://cw0m1prd0ck4w" path="res://Player/Hurt_Initial Character-Sheet_mask.png" id="3_7v5gs"]
 [ext_resource type="PackedScene" uid="uid://brlj34cctrmr4" path="res://AimingCursor/aiming_cursor.tscn" id="3_tok1r"]
 [ext_resource type="Texture2D" uid="uid://bn8in3578kyyn" path="res://Player/Walking_Initial Character-Sheet_Mask.png" id="3_vlldt"]
 [ext_resource type="PackedScene" uid="uid://dxodcqhnwcyum" path="res://Weapon/ShurikenWeapon/ShurikenWeapon.tscn" id="4_ddoul"]
-[ext_resource type="Script" path="res://Player/AbilitySystem.gd" id="5_8g4oa"]
+[ext_resource type="Script" uid="uid://bq7mrd3g36pbt" path="res://Player/AbilitySystem.gd" id="5_8g4oa"]
 [ext_resource type="Texture2D" uid="uid://qinst4w3h6ob" path="res://SpeedyEnemy/Character_PoisonCharacter/Hurt_Poison Character-Sheet_mask.png" id="7_p7tob"]
 [ext_resource type="Texture2D" uid="uid://c02vha6yobxo8" path="res://SpeedyEnemy/Character_PoisonCharacter/IDLE_Poison Speed Character-Sheet_Mask.png" id="8_dm7nj"]
 [ext_resource type="Texture2D" uid="uid://b6ex6sgv56le" path="res://SpeedyEnemy/Character_PoisonCharacter/Walking_Poison Character-Sheet_mask.png" id="9_3mea3"]
@@ -729,23 +729,20 @@ frame_progress = 1.0
 
 [node name="Speedy" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1493209618]
 sprite_frames = SubResource("SpriteFrames_jvfa1")
-animation = &"idle"
-autoplay = "idle"
+animation = &"walking"
 
 [node name="Buffy" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=871992134]
 sprite_frames = SubResource("SpriteFrames_eu7rt")
-animation = &"idle"
-autoplay = "idle"
+animation = &"walking"
+frame_progress = 0.3833519
 
 [node name="FireMage" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1475332390]
 sprite_frames = SubResource("SpriteFrames_1a3po")
-animation = &"idle"
-autoplay = "idle"
+animation = &"walking"
 
 [node name="IceMage" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1048461252]
 sprite_frames = SubResource("SpriteFrames_sqgfh")
-animation = &"idle"
-autoplay = "idle"
+animation = &"hurt"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1482792967]
 
@@ -767,5 +764,4 @@ exp_up = ExtResource("23_7uipr")
 [connection signal="exp_up" from="." to="ParticleSystem" method="_on_player_exp_up"]
 [connection signal="flip_h" from="." to="AnimationSystem" method="set_flip_h"]
 [connection signal="hide_no_using" from="." to="AnimationSystem" method="hide_animation"]
-[connection signal="lvl_up" from="." to="ParticleSystem" method="_on_player_lvl_up"]
 [connection signal="hurt_animation_finished" from="AnimationSystem" to="." method="_on_animation_system_hurt_animation_finished"]

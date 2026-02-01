@@ -12,6 +12,7 @@ extends CharacterBody2D
 
 @export var  character_name = "Enemy"
 signal broadcast_character_name(name : String)
+signal name_broadcast_cancel
 
 var shot_iceball = false
 var ice_ball_speed = 100
@@ -96,3 +97,7 @@ func _on_hit_boxes_mouse_entered() -> void:
 
 func _on_ice_ball_cooldown_timeout() -> void:
 	shot_iceball = false
+
+func _on_hit_boxes_mouse_exited() -> void:
+	print("mouse exited")
+	name_broadcast_cancel.emit()

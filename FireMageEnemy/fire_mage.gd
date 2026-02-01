@@ -12,6 +12,7 @@ extends CharacterBody2D
 
 @export var  character_name = "Enemy"
 signal broadcast_character_name(name : String)
+signal name_broadcast_cancel
 
 var shot_fireball = false
 var fire_ball_speed = 100
@@ -92,9 +93,12 @@ func _on_attack_range_body_exited(body: Node2D) -> void:
 func _on_normal_attack_cooldown_timeout() -> void:
 	attacked = false
 
-
 func _on_hit_boxes_mouse_entered() -> void:
 	broadcast_character_name.emit(character_name)
 
 func _on_fire_ball_cooldown_timeout() -> void:
 	shot_fireball = false
+
+func _on_hit_boxes_mouse_exited() -> void:
+	print("mouse exited")
+	name_broadcast_cancel.emit()
