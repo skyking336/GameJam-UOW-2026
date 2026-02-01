@@ -35,5 +35,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "EXIT	"
 
+[node name="Title" type="Label" parent="." unique_id=445325403]
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 516.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 50
+text = "JoJo Mask"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
