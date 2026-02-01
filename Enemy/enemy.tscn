@@ -82,15 +82,16 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_am0pq"]
 radius = 12.0
-height = 50.0
+height = 42.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_am0pq"]
-radius = 2.0
+radius = 6.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1361306782 groups=["Enemies"]]
 process_mode = 1
 collision_layer = 128
 collision_mask = 6
+motion_mode = 1
 script = ExtResource("1_4gyqm")
 SPEED = 50.0
 player_group = "Player"

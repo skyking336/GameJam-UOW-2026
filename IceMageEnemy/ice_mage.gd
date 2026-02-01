@@ -93,6 +93,7 @@ func _on_normal_attack_cooldown_timeout() -> void:
 
 func _on_hit_boxes_mouse_entered() -> void:
 	broadcast_character_name.emit(character_name)
+	print("somrthing enteref")
 	
 func _on_ice_ball_cooldown_timeout() -> void:
 	shot_iceball = false
