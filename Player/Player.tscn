@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://x75nmxvaygmy"]
 
 [ext_resource type="Script" uid="uid://bd7bp7cdd1tp5" path="res://Player/player.gd" id="1_3qydi"]
-[ext_resource type="Script" path="res://Player/animation_system.gd" id="2_3mea3"]
+[ext_resource type="Script" uid="uid://dc6v6bjuo0xus" path="res://Player/animation_system.gd" id="2_3mea3"]
 [ext_resource type="Texture2D" uid="uid://dfv1mhndwxen5" path="res://SpriteAssets/IDLE_Initial Character-Sheet.png" id="2_q3lat"]
 [ext_resource type="Texture2D" uid="uid://cw0m1prd0ck4w" path="res://Player/Hurt_Initial Character-Sheet_mask.png" id="3_7v5gs"]
 [ext_resource type="PackedScene" uid="uid://brlj34cctrmr4" path="res://AimingCursor/aiming_cursor.tscn" id="3_tok1r"]
 [ext_resource type="Texture2D" uid="uid://bn8in3578kyyn" path="res://Player/Walking_Initial Character-Sheet_Mask.png" id="3_vlldt"]
 [ext_resource type="PackedScene" uid="uid://dxodcqhnwcyum" path="res://Weapon/ShurikenWeapon/ShurikenWeapon.tscn" id="4_ddoul"]
-[ext_resource type="Script" path="res://Player/AbilitySystem.gd" id="5_8g4oa"]
+[ext_resource type="Script" uid="uid://bq7mrd3g36pbt" path="res://Player/AbilitySystem.gd" id="5_8g4oa"]
 [ext_resource type="Texture2D" uid="uid://qinst4w3h6ob" path="res://SpeedyEnemy/Character_PoisonCharacter/Hurt_Poison Character-Sheet_mask.png" id="7_p7tob"]
 [ext_resource type="Texture2D" uid="uid://c02vha6yobxo8" path="res://SpeedyEnemy/Character_PoisonCharacter/IDLE_Poison Speed Character-Sheet_Mask.png" id="8_dm7nj"]
 [ext_resource type="Texture2D" uid="uid://b6ex6sgv56le" path="res://SpeedyEnemy/Character_PoisonCharacter/Walking_Poison Character-Sheet_mask.png" id="9_3mea3"]
@@ -23,6 +23,8 @@
 [ext_resource type="Script" uid="uid://cpj24r5hw11r6" path="res://Player/ParticleEffect/particle_system.gd" id="21_ps8ct"]
 [ext_resource type="PackedScene" uid="uid://dpfnnyaqr80st" path="res://Player/ParticleEffect/level_up.tscn" id="22_ps8ct"]
 [ext_resource type="PackedScene" uid="uid://bb34rrsjtkft5" path="res://Player/ParticleEffect/exp_up.tscn" id="23_7uipr"]
+[ext_resource type="Texture2D" uid="uid://cyca2dh7n6317" path="res://Player/mask_1.png" id="24_7uipr"]
+[ext_resource type="PackedScene" uid="uid://b6g8dsyny0ltm" path="res://Player/ParticleEffect/smoke.tscn" id="24_yifbt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3lat"]
 height = 46.0
@@ -720,6 +722,7 @@ shape = SubResource("CircleShape2D_q3lat")
 script = ExtResource("2_3mea3")
 
 [node name="Enemy" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1594797316]
+visible = false
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_v0k0e")
 animation = &"hurt"
@@ -728,21 +731,25 @@ frame = 3
 frame_progress = 1.0
 
 [node name="Speedy" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1493209618]
+visible = false
 sprite_frames = SubResource("SpriteFrames_jvfa1")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="Buffy" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=871992134]
+visible = false
 sprite_frames = SubResource("SpriteFrames_eu7rt")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="FireMage" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1475332390]
+visible = false
 sprite_frames = SubResource("SpriteFrames_1a3po")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="IceMage" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1048461252]
+visible = false
 sprite_frames = SubResource("SpriteFrames_sqgfh")
 animation = &"idle"
 autoplay = "idle"
@@ -760,6 +767,13 @@ script = ExtResource("5_8g4oa")
 script = ExtResource("21_ps8ct")
 lvl_up = ExtResource("22_ps8ct")
 exp_up = ExtResource("23_7uipr")
+smoke = ExtResource("24_yifbt")
+
+[node name="Mask" type="Sprite2D" parent="." unique_id=1744423601]
+z_index = 10
+position = Vector2(0, -13)
+scale = Vector2(0.921875, 0.78125)
+texture = ExtResource("24_7uipr")
 
 [connection signal="change_to_hurt" from="." to="AnimationSystem" method="set_hurt"]
 [connection signal="change_to_idle" from="." to="AnimationSystem" method="set_idle"]
@@ -768,4 +782,5 @@ exp_up = ExtResource("23_7uipr")
 [connection signal="flip_h" from="." to="AnimationSystem" method="set_flip_h"]
 [connection signal="hide_no_using" from="." to="AnimationSystem" method="hide_animation"]
 [connection signal="lvl_up" from="." to="ParticleSystem" method="_on_player_lvl_up"]
+[connection signal="spawn_smoke" from="." to="ParticleSystem" method="_play_smoke"]
 [connection signal="hurt_animation_finished" from="AnimationSystem" to="." method="_on_animation_system_hurt_animation_finished"]
