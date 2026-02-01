@@ -24,6 +24,7 @@ func _input(event):
 				print("player didnt select")
 			else:
 				player_evolving = false
+				broadcast_player_not_evolving.emit()
 				player.evolve(target_name)
 				pause_scene()
 
