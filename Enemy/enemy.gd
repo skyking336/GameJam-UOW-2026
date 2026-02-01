@@ -17,9 +17,9 @@ signal name_broadcast_cancel
 signal broadcast_self_name(name : String)
 signal broadcast_self_name_cancel
 
-
 var attacked = false
 var player_in_range = false
+var player_is_evolving = false
 
 var Alive = true
 
@@ -63,7 +63,6 @@ func got_damaged():
 		await $EnemyAnimation.animation_finished
 		$EnemyAnimation.play("idle")
 
-
 func _on_attack_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group(player_group):
 		player_in_range = true
@@ -76,10 +75,16 @@ func _on_normal_attack_cooldown_timeout() -> void:
 	attacked = false
 
 func _on_hit_boxes_mouse_entered() -> void:
-	print(self.name)
 	broadcast_self_name.emit(str(self.name))
 	broadcast_character_name.emit(character_name)
 	
 func _on_hit_boxes_mouse_exited() -> void:
 	broadcast_self_name_cancel.emit()
 	name_broadcast_cancel.emit()
+
+func set_player_is_evolving():
+	$Arrow.show()
+	
+func set_player_not_evolving():
+	$Arrow.hide()
+	player_is_evolving = false

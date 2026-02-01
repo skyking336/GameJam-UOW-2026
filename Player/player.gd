@@ -18,7 +18,6 @@ const ENEMY_ABILITY_MAP = {
 
 var health: int = max_health
 var experience: int = 0
-var invincible = false
 var is_moving = false
 var is_hurt = false
 
@@ -76,8 +75,6 @@ func _physics_process(_delta: float) -> void:
 
 
 func got_damaged(damage: int) -> void:
-	if invincible:
-		return
 	health -= damage
 	is_hurt = true
 	change_to_hurt.emit(current_animation)
@@ -108,7 +105,6 @@ func inc_experience(ex: int) -> void:
 
 	if current_level == 2:
 		if phase_1_completion == false:
-			invincible = true
 			print("phase 1 completed")
 			main_scene.pause_scene()
 			main_scene.evolve_player()
@@ -116,7 +112,6 @@ func inc_experience(ex: int) -> void:
 
 	if current_level == 10:
 		if phase_2_completion == false:
-			invincible = true
 			print("phase 2 completed")
 			main_scene.pause_scene()
 			main_scene.evolve_player()
@@ -124,7 +119,6 @@ func inc_experience(ex: int) -> void:
 
 	if current_level == 15:
 		if phase_3_completion == false:
-			invincible = true
 			print("phase 3 completed")
 			main_scene.pause_scene()
 			main_scene.evolve_player()
