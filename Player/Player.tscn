@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://brlj34cctrmr4" path="res://AimingCursor/aiming_cursor.tscn" id="3_tok1r"]
 [ext_resource type="Texture2D" uid="uid://bn8in3578kyyn" path="res://Player/Walking_Initial Character-Sheet_Mask.png" id="3_vlldt"]
 [ext_resource type="PackedScene" uid="uid://dxodcqhnwcyum" path="res://Weapon/ShurikenWeapon/ShurikenWeapon.tscn" id="4_ddoul"]
-[ext_resource type="Script" uid="uid://bq7mrd3g36pbt" path="res://Player/AbilitySystem.gd" id="5_8g4oa"]
+[ext_resource type="Script" path="res://Player/AbilitySystem.gd" id="5_8g4oa"]
 [ext_resource type="Texture2D" uid="uid://qinst4w3h6ob" path="res://SpeedyEnemy/Character_PoisonCharacter/Hurt_Poison Character-Sheet_mask.png" id="7_p7tob"]
 [ext_resource type="Texture2D" uid="uid://c02vha6yobxo8" path="res://SpeedyEnemy/Character_PoisonCharacter/IDLE_Poison Speed Character-Sheet_Mask.png" id="8_dm7nj"]
 [ext_resource type="Texture2D" uid="uid://b6ex6sgv56le" path="res://SpeedyEnemy/Character_PoisonCharacter/Walking_Poison Character-Sheet_mask.png" id="9_3mea3"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://bb34rrsjtkft5" path="res://Player/ParticleEffect/exp_up.tscn" id="23_7uipr"]
 [ext_resource type="Texture2D" uid="uid://cyca2dh7n6317" path="res://Player/mask_1.png" id="24_7uipr"]
 [ext_resource type="PackedScene" uid="uid://b6g8dsyny0ltm" path="res://Player/ParticleEffect/smoke.tscn" id="24_yifbt"]
+[ext_resource type="PackedScene" uid="uid://born4n0nh0jmu" path="res://Weapon/FireballWeapon/FireballWeapon.tscn" id="26_s0mko"]
+[ext_resource type="PackedScene" uid="uid://b57hmd7x4rqkx" path="res://Weapon/IceWeapon/IceWeapon.tscn" id="27_hqjia"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q3lat"]
 height = 46.0
@@ -710,6 +712,10 @@ collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_3qydi")
 SPEED = 250.0
+available_weapons = Dictionary[int, PackedScene]({
+0: ExtResource("26_s0mko"),
+1: ExtResource("27_hqjia")
+})
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=321510866]
 shape = SubResource("CapsuleShape2D_q3lat")
