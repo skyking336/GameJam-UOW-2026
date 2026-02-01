@@ -59,7 +59,8 @@ func spawn_normal_enemy():
 		main_scene.add_child(enemy)
 		enemy.broadcast_character_name.connect(main_scene.set_target_name)
 		enemy.name_broadcast_cancel.connect(main_scene.set_name_cancel)
-	
+		enemy.broadcast_self_name.connect(main_scene.set_target_tree_name)
+		enemy.broadcast_self_name_cancel.connect(main_scene.set_target_tree_name_cancel)
 func random_normal_enemy_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
 	var weight = normal_enemy_spawn_curve.sample(random_spawn_amount) # Get the Y value (the "rarity")
@@ -91,7 +92,8 @@ func spawn_speedy():
 		main_scene.add_child(enemy)
 		enemy.broadcast_character_name.connect(main_scene.set_target_name)
 		enemy.name_broadcast_cancel.connect(main_scene.set_name_cancel)
-	
+		enemy.broadcast_self_name.connect(main_scene.set_target_tree_name)
+		enemy.broadcast_self_name_cancel.connect(main_scene.set_target_tree_name_cancel)
 
 func random_speedy_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
@@ -124,7 +126,9 @@ func spawn_buffy():
 		main_scene.add_child(enemy)
 		enemy.broadcast_character_name.connect(main_scene.set_target_name)
 		enemy.name_broadcast_cancel.connect(main_scene.set_name_cancel)
-	
+		enemy.broadcast_self_name.connect(main_scene.set_target_tree_name)
+		enemy.broadcast_self_name_cancel.connect(main_scene.set_target_tree_name_cancel)
+
 func random_buffy_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
 	var weight = buffy_spawn_curve.sample(random_spawn_amount) # Get the Y value (the "rarity")
@@ -156,6 +160,8 @@ func spawn_fire_mage():
 		main_scene.add_child(enemy)
 		enemy.broadcast_character_name.connect(main_scene.set_target_name)
 		enemy.name_broadcast_cancel.connect(main_scene.set_name_cancel)
+		enemy.broadcast_self_name.connect(main_scene.set_target_tree_name)
+		enemy.broadcast_self_name_cancel.connect(main_scene.set_target_tree_name_cancel)
 
 func random_fire_mage_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
@@ -188,8 +194,10 @@ func spawn_ice_mage():
 		main_scene.add_child(enemy)
 		enemy.broadcast_character_name.connect(main_scene.set_target_name)
 		enemy.name_broadcast_cancel.connect(main_scene.set_name_cancel)
+		enemy.broadcast_self_name.connect(main_scene.set_target_tree_name)
+		enemy.broadcast_self_name_cancel.connect(main_scene.set_target_tree_name_cancel)
 
-
+		
 func random_ice_mage_amount():
 	var random_spawn_amount = randf() # Pick a spot on the X axis of the curve
 	var weight = ice_mage_spawn_curve.sample(random_spawn_amount) # Get the Y value (the "rarity")
