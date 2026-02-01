@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bb34rrsjtkft5"]
+
+[ext_resource type="Texture2D" uid="uid://b34wkneu53s0i" path="res://Player/ParticleEffect/XP UP Effect.png" id="1_mrxk8"]
+[ext_resource type="Script" uid="uid://dg0tnmmyk0lvn" path="res://Player/ParticleEffect/play_particle.gd" id="1_sl0kh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyr7x"]
+atlas = ExtResource("1_mrxk8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e2fr"]
+atlas = ExtResource("1_mrxk8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3om3i"]
+atlas = ExtResource("1_mrxk8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k38o"]
+atlas = ExtResource("1_mrxk8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sos5"]
+atlas = ExtResource("1_mrxk8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlc46"]
+atlas = ExtResource("1_mrxk8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5tgw"]
+atlas = ExtResource("1_mrxk8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_es2bh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyr7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e2fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3om3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k38o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sos5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlc46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5tgw")
+}],
+"loop": false,
+"name": &"exp_up",
+"speed": 12.0
+}]
+
+[node name="ExpUp" type="Node2D" unique_id=299671872]
+z_index = 10
+script = ExtResource("1_sl0kh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=733772017]
+z_index = 10
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_es2bh")
+animation = &"exp_up"

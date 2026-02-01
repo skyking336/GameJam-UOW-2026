@@ -82,15 +82,19 @@ var phase_1_completion = false
 var phase_2_completion = false
 var phase_3_completion = false
 
+signal exp_up
+signal lvl_up
 func inc_experience(ex: int) -> void:
 	experience += ex
+	exp_up.emit()
 	if experience >= level_up_threshold:
+		lvl_up.emit()
 		current_level += 1
-		level_up_threshold *= 1.5
+		level_up_threshold *= 1.2
 		experience = 0
 		exp_threshold_updated.emit(level_up_threshold)
 
-	if current_level == 5:
+	if current_level == 2:
 		if phase_1_completion == false:
 			invincible = true
 			print("phase 1 completed")

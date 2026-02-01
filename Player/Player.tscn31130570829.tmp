@@ -729,23 +729,20 @@ frame_progress = 1.0
 
 [node name="Speedy" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1493209618]
 sprite_frames = SubResource("SpriteFrames_jvfa1")
-animation = &"idle"
-autoplay = "idle"
+animation = &"walking"
 
 [node name="Buffy" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=871992134]
 sprite_frames = SubResource("SpriteFrames_eu7rt")
-animation = &"idle"
-autoplay = "idle"
+animation = &"walking"
+frame_progress = 0.3833519
 
 [node name="FireMage" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1475332390]
 sprite_frames = SubResource("SpriteFrames_1a3po")
-animation = &"idle"
-autoplay = "idle"
+animation = &"walking"
 
 [node name="IceMage" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1048461252]
 sprite_frames = SubResource("SpriteFrames_sqgfh")
-animation = &"idle"
-autoplay = "idle"
+animation = &"hurt"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1482792967]
 
@@ -767,5 +764,4 @@ exp_up = ExtResource("23_7uipr")
 [connection signal="exp_up" from="." to="ParticleSystem" method="_on_player_exp_up"]
 [connection signal="flip_h" from="." to="AnimationSystem" method="set_flip_h"]
 [connection signal="hide_no_using" from="." to="AnimationSystem" method="hide_animation"]
-[connection signal="lvl_up" from="." to="ParticleSystem" method="_on_player_lvl_up"]
 [connection signal="hurt_animation_finished" from="AnimationSystem" to="." method="_on_animation_system_hurt_animation_finished"]
