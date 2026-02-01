@@ -11,8 +11,8 @@ func _ready():
 		print("mainscene did not found player")
 		return
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
 		pause_scene()
 	if player_evolving == true:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -27,9 +27,10 @@ func _process(delta: float) -> void:
 func pause_scene():
 	get_tree().paused = not get_tree().paused
 
+
 func set_target_name(enemy_name):
 	target_name = enemy_name
-	
+
 func set_name_cancel():
 	target_name = null
 
@@ -42,3 +43,8 @@ func set_target_tree_name_cancel():
 
 func evolve_player():
 	player_evolving = true
+
+
+func _on_boss_defeated(_exp_value: int) -> void:
+	print("Boss defeated! You win!")
+	get_tree().paused = true

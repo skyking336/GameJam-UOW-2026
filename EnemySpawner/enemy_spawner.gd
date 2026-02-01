@@ -2,6 +2,7 @@ extends Node2D
 
 @export var player_group = "Player"
 @export var enemies : Array[PackedScene]
+@export var final_boss_scene: PackedScene
 #@export var enemynames : Dictionary [String,PackedScene]
 
 @export var normal_enemy_spawn_curve : Curve
@@ -19,6 +20,8 @@ var fire_mage_amount
 @export var ice_mage_spawn_curve : Curve
 var ice_mage_amount
 
+@export var boss_spawn_level_treshold : int = 5
+
 @onready var player = get_tree().get_first_node_in_group(player_group)
 @onready var main_scene = get_tree().get_first_node_in_group("MainScene")
 
@@ -30,9 +33,6 @@ func _ready():
 	$BuffySpawnCooldown.start()
 	$FireMageSpawnCooldown.start()
 	$IceMageSpawnCooldown.start()
-
-func _process(_delta):
-	global_position = player.global_position
 
 #---------------------------------------------------------------------------------------------------------------------------------------------
 #This part is only for normal enemy
@@ -203,3 +203,26 @@ func random_ice_mage_amount():
 	var weight = ice_mage_spawn_curve.sample(random_spawn_amount) # Get the Y value (the "rarity")
 	# Map the result to your 4-20 range
 	return int(lerp(min_ice_mage, max_ice_mage, random_spawn_amount * weight))
+
+#------------------------------------------------------------------------------------------------------------------------
+# Boss spawing
+
+
+func _on_player_exp_level_updated(_new_threshold: int, new_level: int) -> void:
+	if new_level == boss_spawn_level_treshold:
+		spawn_boss()
+
+
+func spawn_boss():
+	var final_boss = final_boss_scene.instantiate()
+	$Path2D/MobSpawnArea.progress_ratio = randf()
+	final_boss.global_position = $Path2D/MobSpawnArea.global_position
+	if final_boss == null:
+		print("theres nothing in final_boss")
+	else:
+		call_deferred("_add_boss_to_scene", final_boss)
+		final_boss.broadcast_character_name.connect(main_scene.set_target_name)
+		final_boss.on_died.connect(main_scene._on_boss_defeated)
+
+func _add_boss_to_scene(final_boss):
+	main_scene.add_child(final_boss)

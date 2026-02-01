@@ -1,8 +1,9 @@
 extends CharacterBody2D
+class_name Enemy
 
 
 @export var SPEED = 400.0
-@export var player_group = "DummyPlayer"
+@export var player_group = "Player"
 @export var basic_damage: int = 10
 @export var health: int = 3
 @export var exp_value: int = 20
@@ -40,7 +41,7 @@ func _physics_process(_delta: float) -> void:
 			player.got_damaged(basic_damage)
 			attacked = true
 			$NormalAttackCooldown.start()
-			
+
 func fade_out_on_dying():
 	var tween = get_tree().create_tween()
 	tween.tween_property($EnemyAnimation, "modulate", Color.RED, 0.2)

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://wqu75xn8lwpo"]
+
+[ext_resource type="PackedScene" uid="uid://utu50q5yl7j6" path="res://Weapon/Projectile.tscn" id="1_xkpk7"]
+[ext_resource type="Script" uid="uid://db24cggcqm7r1" path="res://FinalBoss/stone.gd" id="2_8lsi0"]
+[ext_resource type="Texture2D" uid="uid://bqsa1enptmg7c" path="res://FinalBoss/BOSS_STONE.png" id="2_10nus"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8lsi0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_10nus")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Stone" unique_id=647778702 instance=ExtResource("1_xkpk7")]
+mass = 10.0
+gravity_scale = 0.3
+script = ExtResource("2_8lsi0")
+
+[node name="Sprite" parent="." index="0" unique_id=231261866]
+position = Vector2(-1, -11)
+sprite_frames = SubResource("SpriteFrames_8lsi0")
+
+[node name="AreaShape" parent="Area" parent_id_path=PackedInt32Array(1935123072) index="0" unique_id=1368009481]
+position = Vector2(1, -4)
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]

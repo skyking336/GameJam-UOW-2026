@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://iqwtkdukiaui" path="res://UI/MainUI.tscn" id="3_rf2cd"]
 [ext_resource type="PackedScene" uid="uid://x75nmxvaygmy" path="res://Player/Player.tscn" id="4_uxrcv"]
 [ext_resource type="PackedScene" uid="uid://dbhl0iway82yg" path="res://EnemySpawner/enemy_spawner.tscn" id="5_rf2cd"]
+[ext_resource type="AudioStream" uid="uid://ca6dd8uk0otqt" path="res://Audio/Battle BGM 1.MP3" id="6_a814b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a814b"]
 texture = ExtResource("2_uxrcv")
@@ -843,7 +844,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_5crlr")
 
-[node name="TestScene" type="Node2D" unique_id=1218715016 groups=["MainScene"]]
+[node name="MainScene" type="Node2D" unique_id=1218715016 groups=["MainScene"]]
 process_mode = 3
 script = ExtResource("1_rf2cd")
 
@@ -867,9 +868,16 @@ position = Vector2(2, 1)
 process_mode = 1
 position = Vector2(-6, -5)
 
-[node name="MainUI" parent="Player" unique_id=813658371 instance=ExtResource("3_rf2cd")]
+[node name="BGMPlayer" type="AudioStreamPlayer2D" parent="Player" unique_id=686349059]
+position = Vector2(-2, -1)
+stream = ExtResource("6_a814b")
+autoplay = true
 
-[connection signal="ability_updated" from="Player" to="Player/MainUI" method="_on_player_ability_updated"]
-[connection signal="exp_threshold_updated" from="Player" to="Player/MainUI" method="_on_player_exp_threshold_updated"]
-[connection signal="exp_update" from="Player" to="Player/MainUI" method="_on_player_exp_update"]
-[connection signal="hp_update" from="Player" to="Player/MainUI" method="_on_player_hp_update"]
+[node name="MainUI" parent="." unique_id=813658371 instance=ExtResource("3_rf2cd")]
+
+[connection signal="ability_updated" from="Player" to="MainUI" method="_on_player_ability_updated"]
+[connection signal="exp_level_updated" from="Player" to="Player/EnemySpawner" method="_on_player_exp_level_updated"]
+[connection signal="exp_level_updated" from="Player" to="MainUI" method="_on_player_exp_level_updated"]
+[connection signal="exp_update" from="Player" to="MainUI" method="_on_player_exp_update"]
+[connection signal="hp_update" from="Player" to="MainUI" method="_on_player_hp_update"]
+[connection signal="max_hp_update" from="Player" to="MainUI" method="_on_player_max_hp_update"]
