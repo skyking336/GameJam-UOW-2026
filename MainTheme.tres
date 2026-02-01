@@ -1,6 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://dlvnhi6ls1a30"]
 
 [ext_resource type="FontFile" uid="uid://bvjge7stnmsml" path="res://PixelOperator8.ttf" id="1_4as0w"]
+[ext_resource type="FontFile" uid="uid://c5aonkrmvjio8" path="res://PixelOperator8-Bold.ttf" id="1_rfn4m"]
+[ext_resource type="StyleBox" uid="uid://c7kva2ypykm0m" path="res://UI/Button/button_style_box.tres" id="1_yhag5"]
+[ext_resource type="StyleBox" uid="uid://d2c68p2mdpfev" path="res://UI/Button/button_pressed_style_box.tres" id="3_u23kh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8s18r"]
 
@@ -14,6 +17,14 @@ bg_color = Color(1, 0.34353602, 0.27448323, 1)
 bg_color = Color(3.1766297e-06, 0.7172408, 0.40120497, 1)
 
 [resource]
+Button/constants/h_separation = 0
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_rfn4m")
+Button/styles/disabled = ExtResource("1_yhag5")
+Button/styles/focus = ExtResource("1_yhag5")
+Button/styles/hover = ExtResource("1_yhag5")
+Button/styles/normal = ExtResource("1_yhag5")
+Button/styles/pressed = ExtResource("3_u23kh")
 ExpLevel/base_type = &"ProgressBar"
 ExpLevel/colors/font_color = Color(0, 0, 0, 0)
 ExpLevel/font_sizes/font_size = 10
