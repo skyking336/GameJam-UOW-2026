@@ -716,11 +716,13 @@ shape = SubResource("CircleShape2D_q3lat")
 [node name="AnimationSystem" type="Node2D" parent="." unique_id=94500192]
 script = ExtResource("2_3mea3")
 
-[node name="Initial" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1594797316]
+[node name="Enemy" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1594797316]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_v0k0e")
 animation = &"hurt"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 
 [node name="Speedy" type="AnimatedSprite2D" parent="AnimationSystem" unique_id=1493209618]
 sprite_frames = SubResource("SpriteFrames_jvfa1")

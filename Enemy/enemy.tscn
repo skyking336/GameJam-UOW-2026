@@ -132,4 +132,5 @@ shape = SubResource("CircleShape2D_am0pq")
 [connection signal="body_entered" from="HitBoxes" to="." method="_on_attack_range_body_entered"]
 [connection signal="body_exited" from="HitBoxes" to="." method="_on_attack_range_body_exited"]
 [connection signal="mouse_entered" from="HitBoxes" to="." method="_on_hit_boxes_mouse_entered"]
+[connection signal="mouse_exited" from="HitBoxes" to="." method="_on_hit_boxes_mouse_exited"]
 [connection signal="timeout" from="NormalAttackCooldown" to="." method="_on_normal_attack_cooldown_timeout"]

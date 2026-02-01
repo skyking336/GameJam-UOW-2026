@@ -25,13 +25,15 @@ signal exp_update(experience: int)
 signal exp_threshold_updated(new_threshold: int)
 signal ability_updated(abilities: Array[Ability])
 
-var animation = ["Initial", "Speedy", "Buffy", "FireMage", "IceMage"]
+var animation = ["Enemy", "Speedy", "Buffy", "FireMage", "IceMage"]
 var current_animation = animation[0]
 signal change_to_walking(current :String)
 signal change_to_hurt(current :String)
 signal change_to_idle(current :String)
 signal flip_h(value : bool, current :String)
 signal hide_no_using(current :String)
+
+@onready var main_scene = get_tree().get_first_node_in_group("MainScene")
 
 func _ready() -> void:
 	hide_no_using.emit(current_animation)
@@ -40,6 +42,10 @@ func _ready() -> void:
 	exp_update.emit(experience)
 	exp_threshold_updated.emit(level_up_threshold)
 	ability_updated.emit(abilities)
+	
+	if main_scene == null:
+		print("main scene wasnt found")
+		return
 
 
 func _physics_process(_delta: float) -> void:
@@ -56,6 +62,8 @@ func _physics_process(_delta: float) -> void:
 	elif is_hurt == false:
 		change_to_idle.emit(current_animation)
 
+
+
 func got_damaged(damage: int) -> void:
 	if invincible:
 		return
@@ -70,6 +78,10 @@ func got_damaged(damage: int) -> void:
 func die() -> void:
 	print("Player has died")
 
+var phase_1_completion = false
+var phase_2_completion = false
+var phase_3_completion = false
+
 func inc_experience(ex: int) -> void:
 	experience += ex
 	if experience >= level_up_threshold:
@@ -79,17 +91,28 @@ func inc_experience(ex: int) -> void:
 		exp_threshold_updated.emit(level_up_threshold)
 
 	if current_level == 5:
-		invincible = true
-		print("phase 1 completed")
-		#here need to make the logic for converting enemy into player
+		if phase_1_completion == false:
+			invincible = true
+			print("phase 1 completed")
+			main_scene.pause_scene()
+			main_scene.evolve_player()
+		phase_1_completion = true
 
 	if current_level == 10:
-		invincible = true
-		print("phase 2 completed")
+		if phase_2_completion == false:
+			invincible = true
+			print("phase 2 completed")
+			main_scene.pause_scene()
+			main_scene.evolve_player()
+		phase_2_completion = true
 
 	if current_level == 15:
-		invincible = true
-		print("phase 3 completed")
+		if phase_3_completion == false:
+			invincible = true
+			print("phase 3 completed")
+			main_scene.pause_scene()
+			main_scene.evolve_player()
+		phase_3_completion = true
 
 	exp_update.emit(experience)
 

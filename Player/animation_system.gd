@@ -3,10 +3,14 @@ extends Node2D
 signal hurt_animation_finished
 
 func hide_animation(current:String):
+	print("hide animation ran once")
+	print("hide animation = " + str(current))
 	for child in get_children():
 		if child.name != current:
 			child.stop()
 			child.hide()
+		else:
+			child.show()
 
 func set_walking(current : String):
 	var animation = get_node(current)
