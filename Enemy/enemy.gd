@@ -83,7 +83,9 @@ func _on_hit_boxes_mouse_exited() -> void:
 	name_broadcast_cancel.emit()
 
 func set_player_is_evolving():
-	$Arrow.show()
+	if Alive == true:
+		$Arrow.show()
+	player_is_evolving = true
 	
 func set_player_not_evolving():
 	$Arrow.hide()
