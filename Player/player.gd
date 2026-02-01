@@ -15,14 +15,14 @@ var invincible = false
 var is_moving = false
 var is_hurt = false
 
-var current_level: int = 1
+var current_level: int = 4
 var level_up_threshold: int = 200
 var abilities: Array[Ability] = [Ability.FIRE, Ability.ICE]
 
 signal hp_update(health: int)
 signal max_hp_update(max_health: int)
 signal exp_update(experience: int)
-signal exp_threshold_updated(new_threshold: int)
+signal exp_level_updated(new_threshold: int, new_level: int)
 signal ability_updated(abilities: Array[Ability])
 
 var animation = ["Initial", "Speedy", "Buffy", "FireMage", "IceMage"]
@@ -38,7 +38,7 @@ func _ready() -> void:
 	max_hp_update.emit(max_health)
 	hp_update.emit(health)
 	exp_update.emit(experience)
-	exp_threshold_updated.emit(level_up_threshold)
+	exp_level_updated.emit(level_up_threshold, current_level)
 	ability_updated.emit(abilities)
 
 
@@ -76,7 +76,7 @@ func inc_experience(ex: int) -> void:
 		current_level += 1
 		level_up_threshold *= 1.5
 		experience = 0
-		exp_threshold_updated.emit(level_up_threshold)
+		exp_level_updated.emit(level_up_threshold, current_level)
 
 	if current_level == 5:
 		invincible = true
@@ -95,7 +95,7 @@ func inc_experience(ex: int) -> void:
 
 
 func _on_experience_system_exp_threshold_updated(new_threshold: int) -> void:
-	exp_threshold_updated.emit(new_threshold)
+	exp_level_updated.emit(new_threshold)
 
 
 func _on_animation_system_hurt_animation_finished() -> void:
