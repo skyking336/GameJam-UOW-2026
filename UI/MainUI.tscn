@@ -82,6 +82,15 @@ unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_wa2eh")
 
+[node name="LvlLabel" type="Label" parent="MainMargin/GridContainer" unique_id=1909909788]
+layout_mode = 2
+text = "LVL"
+
+[node name="LvlCount" type="Label" parent="MainMargin/GridContainer" unique_id=1952507181]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
 [node name="PausePanel" type="Panel" parent="." unique_id=156047828]
 unique_name_in_owner = true
 visible = false
@@ -98,3 +107,49 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("7_475mu")
 theme_override_font_sizes/font_size = 30
 text = "PAUSED"
+
+[node name="WinPanel" type="Panel" parent="." unique_id=2040535493]
+visible = false
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="WinLabel" type="Label" parent="WinPanel" unique_id=2056385095]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 128.0
+offset_right = 416.0
+offset_bottom = 159.0
+theme_override_font_sizes/font_size = 30
+text = "YOU WIN!"
+horizontal_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="WinPanel" unique_id=1782059777]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 192.0
+offset_right = 455.0
+offset_bottom = 300.0
+text = "Main Menu"
+
+[node name="LosePanel" type="Panel" parent="." unique_id=1314134732]
+visible = false
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="LoseLabel" type="Label" parent="LosePanel" unique_id=1573917516]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 128.0
+offset_right = 416.0
+offset_bottom = 159.0
+theme_override_font_sizes/font_size = 30
+text = "YOU WIN!"
+horizontal_alignment = 1
+
+[node name="MainMenuButton" type="Button" parent="LosePanel" unique_id=858231551]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 192.0
+offset_right = 455.0
+offset_bottom = 300.0
+text = "Main Menu"
