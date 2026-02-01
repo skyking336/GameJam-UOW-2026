@@ -16,6 +16,9 @@ bg_color = Color(1, 0.34353602, 0.27448323, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfn4m"]
 bg_color = Color(3.1766297e-06, 0.7172408, 0.40120497, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u23kh"]
+bg_color = Color(0, 0, 0, 0.47843137)
+
 [resource]
 Button/constants/h_separation = 0
 Button/font_sizes/font_size = 20
@@ -37,3 +40,4 @@ Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 6
 Label/font_sizes/font_size = 12
 Label/fonts/font = ExtResource("1_4as0w")
+Panel/styles/panel = SubResource("StyleBoxFlat_u23kh")

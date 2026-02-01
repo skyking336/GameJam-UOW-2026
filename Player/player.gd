@@ -63,6 +63,12 @@ func got_damaged(damage: int) -> void:
 	is_hurt = true
 	change_to_hurt.emit(current_animation)
 	hp_update.emit(health)
+	if health <= 0:
+		die()
+
+
+func die() -> void:
+	print("Player has died")
 
 func inc_experience(ex: int) -> void:
 	experience += ex

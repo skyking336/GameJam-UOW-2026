@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdxl6hlp0s4ja" path="res://UI/QuestionMarks_ui.png" id="3_wa2eh"]
 [ext_resource type="Texture2D" uid="uid://suvk1uhuud8b" path="res://UI/Frozen_ui.png" id="4_475mu"]
 [ext_resource type="Texture2D" uid="uid://8wenytkeq2he" path="res://UI/Poison Bottle_uii.png" id="5_uqb74"]
+[ext_resource type="FontFile" uid="uid://c5aonkrmvjio8" path="res://PixelOperator8-Bold.ttf" id="7_475mu"]
 
 [node name="MainUI" type="CanvasLayer" unique_id=813658371]
 script = ExtResource("1_wwh41")
@@ -80,3 +81,20 @@ texture = ExtResource("3_wa2eh")
 unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_wa2eh")
+
+[node name="PausePanel" type="Panel" parent="." unique_id=156047828]
+unique_name_in_owner = true
+visible = false
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="CenterContainer" type="CenterContainer" parent="PausePanel" unique_id=583178107]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="PauseLabel" type="Label" parent="PausePanel/CenterContainer" unique_id=1042620858]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_475mu")
+theme_override_font_sizes/font_size = 30
+text = "PAUSED"
