@@ -2,6 +2,7 @@ extends Node2D
 
 @export var lvl_up : PackedScene
 @export var exp_up : PackedScene
+@export var smoke : PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,5 +18,10 @@ func _on_player_exp_up() -> void:
 
 func _on_player_lvl_up() -> void:
 	var new_particle = lvl_up.instantiate()
+	new_particle.position = position
+	add_child(new_particle)
+
+func _play_smoke() -> void:
+	var new_particle = smoke.instantiate()
 	new_particle.position = position
 	add_child(new_particle)

@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://b6g8dsyny0ltm"]
+
+[ext_resource type="Texture2D" uid="uid://dvxra4pmcv1f6" path="res://Player/ParticleEffect/smoke_Transition.png" id="1_cek56"]
+[ext_resource type="Script" uid="uid://dg0tnmmyk0lvn" path="res://Player/ParticleEffect/play_particle.gd" id="1_v2y5r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2y5r"]
+atlas = ExtResource("1_cek56")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fjr6"]
+atlas = ExtResource("1_cek56")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kudmt"]
+atlas = ExtResource("1_cek56")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wlrf"]
+atlas = ExtResource("1_cek56")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_038yb"]
+atlas = ExtResource("1_cek56")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwu0o"]
+atlas = ExtResource("1_cek56")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evxs1"]
+atlas = ExtResource("1_cek56")
+region = Rect2(576, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gvpg"]
+atlas = ExtResource("1_cek56")
+region = Rect2(672, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnhk6"]
+atlas = ExtResource("1_cek56")
+region = Rect2(768, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg0i4"]
+atlas = ExtResource("1_cek56")
+region = Rect2(864, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sjem"]
+atlas = ExtResource("1_cek56")
+region = Rect2(960, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6e1s"]
+atlas = ExtResource("1_cek56")
+region = Rect2(1056, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_peurl"]
+atlas = ExtResource("1_cek56")
+region = Rect2(1152, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ls8o"]
+atlas = ExtResource("1_cek56")
+region = Rect2(1248, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nka7m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2y5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fjr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kudmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wlrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_038yb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwu0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evxs1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gvpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnhk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg0i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sjem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6e1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_peurl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ls8o")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Smoke" type="Node2D" unique_id=1958489938]
+script = ExtResource("1_v2y5r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=559853857]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nka7m")
+frame = 13
+frame_progress = 1.0

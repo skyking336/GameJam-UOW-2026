@@ -15,7 +15,7 @@ var invincible = false
 var is_moving = false
 var is_hurt = false
 
-var current_level: int = 4
+var current_level: int = 1
 var level_up_threshold: int = 200
 var abilities: Array[Ability] = [Ability.FIRE, Ability.ICE]
 
@@ -33,6 +33,8 @@ signal change_to_idle(current :String)
 signal flip_h(value : bool, current :String)
 signal hide_no_using(current :String)
 
+signal spawn_smoke
+
 @onready var main_scene = get_tree().get_first_node_in_group("MainScene")
 
 func _ready() -> void:
@@ -42,12 +44,12 @@ func _ready() -> void:
 	exp_update.emit(experience)
 	exp_level_updated.emit(level_up_threshold, current_level)
 	ability_updated.emit(abilities)
+	$Mask.hide()
 	
 	if main_scene == null:
 		print("main scene wasnt found")
 		return
-
-
+		
 func _physics_process(_delta: float) -> void:
 	var input_direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if input_direction != Vector2.ZERO:
@@ -94,7 +96,7 @@ func inc_experience(ex: int) -> void:
 		experience = 0
 		exp_level_updated.emit(level_up_threshold, current_level)
 
-	if current_level == 2:
+	if current_level == 5:
 		if phase_1_completion == false:
 			invincible = true
 			print("phase 1 completed")
@@ -120,10 +122,9 @@ func inc_experience(ex: int) -> void:
 
 	exp_update.emit(experience)
 
-
 func _on_experience_system_exp_threshold_updated(new_threshold: int) -> void:
 	exp_level_updated.emit(new_threshold)
 
-
 func _on_animation_system_hurt_animation_finished() -> void:
 	is_hurt = false
+	

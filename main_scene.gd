@@ -11,6 +11,7 @@ func _ready():
 		print("mainscene did not found player")
 		return
 
+
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		pause_scene()
@@ -23,11 +24,11 @@ func _input(event):
 				player.current_animation = target_name
 				player.emit_signal("hide_no_using", target_name)
 				pause_scene()
-
+				player.emit_signal("spawn_smoke")
+				
 func pause_scene():
 	get_tree().paused = not get_tree().paused
-
-
+	
 func set_target_name(enemy_name):
 	target_name = enemy_name
 
@@ -40,6 +41,8 @@ func set_target_tree_name(enemy_tree_name):
 
 func set_target_tree_name_cancel():
 	target_tree_name = null
+
+
 
 func evolve_player():
 	player_evolving = true
