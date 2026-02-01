@@ -42,3 +42,17 @@ func _on_player_ability_updated(abilities: Array[Player.Ability]) -> void:
 					ability_icons[i].texture = poison_ability_icon
 		else:
 			ability_icons[i].texture = empty_ability_icon
+
+
+func _on_main_menu_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://MainMenu/MainMenu.tscn")
+
+
+func show_win_screen() -> void:
+	%GameOverLabel.text = "You Win!"
+	%GameOverPanel.visible = true
+
+
+func show_lose_screen() -> void:
+	%GameOverLabel.text = "You Lose!"
+	%GameOverPanel.visible = true
