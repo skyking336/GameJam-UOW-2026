@@ -15,7 +15,7 @@ var invincible = false
 var is_moving = false
 var is_hurt = false
 
-var current_level: int = 4
+var current_level: int = 1
 var level_up_threshold: int = 200
 var abilities: Array[Ability] = [Ability.FIRE, Ability.ICE]
 
@@ -33,6 +33,7 @@ signal change_to_idle(current :String)
 signal flip_h(value : bool, current :String)
 signal hide_no_using(current :String)
 
+signal spawn_smoke
 signal player_died()
 
 @onready var main_scene = get_tree().get_first_node_in_group("MainScene")
@@ -44,6 +45,7 @@ func _ready() -> void:
 	exp_update.emit(experience)
 	exp_level_updated.emit(level_up_threshold, current_level)
 	ability_updated.emit(abilities)
+	$Mask.hide()
 
 	if main_scene == null:
 		print("main scene wasnt found")
@@ -130,3 +132,4 @@ func _on_experience_system_exp_threshold_updated(new_threshold: int) -> void:
 
 func _on_animation_system_hurt_animation_finished() -> void:
 	is_hurt = false
+	
