@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://boqgyq0cmq3jl"]
+
+[ext_resource type="Script" uid="uid://celw3fxjcletx" path="res://MainMenu/main_menu.gd" id="1_otibh"]
+[ext_resource type="PackedScene" uid="uid://by0b6f1ioaqyg" path="res://MainScene.tscn" id="2_cruaa"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1254843330]
+script = ExtResource("1_otibh")
+main_scene = ExtResource("2_cruaa")
+
+[node name="StartButton" type="Button" parent="." unique_id=872565540]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.0
+offset_top = -35.0
+offset_right = 128.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "START	"
+
+[node name="ExitButton" type="Button" parent="." unique_id=1405974520]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = 34.0
+offset_right = 127.0
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT	"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
