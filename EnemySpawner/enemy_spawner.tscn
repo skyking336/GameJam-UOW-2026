@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://vlibcyph3cp1" path="res://BuffyEnemy/buffy.tscn" id="4_cylr4"]
 [ext_resource type="PackedScene" uid="uid://dhbdtsg33uccl" path="res://FireMageEnemy/fire_mage.tscn" id="5_jrm1r"]
 [ext_resource type="PackedScene" uid="uid://de56238phpait" path="res://IceMageEnemy/ice_mage.tscn" id="6_gycev"]
+[ext_resource type="PackedScene" uid="uid://cuappbi38gctn" path="res://FinalBoss/FinalBoss.tscn" id="7_gycev"]
 
 [sub_resource type="Curve" id="Curve_26bmk"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4619047, 0.5257271), 0.0, 0.0, 0, 0, Vector2(0.99523807, 0.105145454), 0.0, 0.0, 0, 0]
@@ -36,6 +37,7 @@ point_count = 5
 [node name="EnemySpawner" type="Node2D" unique_id=339057514]
 script = ExtResource("1_t8uj2")
 enemies = Array[PackedScene]([ExtResource("2_26bmk"), ExtResource("3_m0m3j"), ExtResource("4_cylr4"), ExtResource("5_jrm1r"), ExtResource("6_gycev")])
+final_boss_scene = ExtResource("7_gycev")
 normal_enemy_spawn_curve = SubResource("Curve_26bmk")
 speedy_spawn_curve = SubResource("Curve_m0m3j")
 buffy_spawn_curve = SubResource("Curve_yxnvd")

@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://cuappbi38gctn"]
+
+[ext_resource type="PackedScene" uid="uid://c82rpr3lbn83q" path="res://Enemy/enemy.tscn" id="1_shsgc"]
+[ext_resource type="Texture2D" uid="uid://l24rwsxthts" path="res://FinalBoss/Walking_Final Boss.png" id="2_ix4i2"]
+[ext_resource type="Script" uid="uid://c0hg2gdn865g" path="res://FinalBoss/final_boss.gd" id="2_xtkkw"]
+[ext_resource type="Texture2D" uid="uid://bvyaeftf0yd17" path="res://FinalBoss/Hurt_Final Boss-Sheet.png" id="3_8dq2u"]
+[ext_resource type="PackedScene" uid="uid://wqu75xn8lwpo" path="res://FinalBoss/Stone.tscn" id="3_vjmjp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aap53"]
+atlas = ExtResource("3_8dq2u")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20pf0"]
+atlas = ExtResource("3_8dq2u")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4khy"]
+atlas = ExtResource("3_8dq2u")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naxxc"]
+atlas = ExtResource("3_8dq2u")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtkkw"]
+atlas = ExtResource("2_ix4i2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dq2u"]
+atlas = ExtResource("2_ix4i2")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjmjp"]
+atlas = ExtResource("2_ix4i2")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvru6"]
+atlas = ExtResource("2_ix4i2")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shsgc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aap53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20pf0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4khy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naxxc")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtkkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dq2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjmjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvru6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="FinalBoss" unique_id=1361306782 instance=ExtResource("1_shsgc")]
+script = ExtResource("2_xtkkw")
+rock_scene = ExtResource("3_vjmjp")
+projectile_speed = 400.0
+SPEED = 100.0
+basic_damage = 100
+health = 100
+exp_value = 1000
+
+[node name="EnemyAnimation" parent="." index="0" unique_id=786765966]
+sprite_frames = SubResource("SpriteFrames_shsgc")
+animation = &"hurt"
+
+[node name="StoneAttackTimer" type="Timer" parent="." index="5" unique_id=2016679274]
+autostart = true
+
+[connection signal="timeout" from="StoneAttackTimer" to="." method="_on_stone_attack_timer_timeout"]
