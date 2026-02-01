@@ -10,4 +10,4 @@ func _on_area_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: 
 	target = area.get_parent()
 	if (target.is_in_group("Enemies")) == true:
 		target.got_damaged()
-	queue_free()
+		queue_free()

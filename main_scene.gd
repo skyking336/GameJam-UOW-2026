@@ -24,18 +24,14 @@ func _input(event):
 				print("player didnt select")
 			else:
 				player_evolving = false
-				broadcast_player_not_evolving.emit()
-				player.current_animation = target_name
-				player.emit_signal("hide_no_using", target_name)
+				player.evolve(target_name)
 				pause_scene()
-				player.emit_signal("spawn_smoke")
-				
+
 func pause_scene():
 	get_tree().paused = not get_tree().paused
-	
+
 func set_target_name(enemy_name):
 	target_name = enemy_name
-	print(target_name)
 
 func set_name_cancel():
 	target_name = null
@@ -46,6 +42,8 @@ func set_target_tree_name(enemy_tree_name):
 
 func set_target_tree_name_cancel():
 	target_tree_name = null
+
+
 
 func evolve_player():
 	player_evolving = true
@@ -66,11 +64,9 @@ func stop_game():
 
 func _on_boss_defeated(_exp_value: int) -> void:
 	print("Boss defeated! You win!")
-	stop_game()
 	game_won()
 
 
 func _on_player_player_died() -> void:
 	print("Player died! You lose!")
-	stop_game()
 	game_lost()
