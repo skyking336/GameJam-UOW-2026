@@ -6,6 +6,12 @@ extends CanvasLayer
 @export var poison_ability_icon: Texture2D
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		get_tree().paused = not get_tree().paused
+		%PausePanel.visible = get_tree().paused
+
+
 func _on_player_hp_update(health: int) -> void:
 	%HPLevel.value = health
 
