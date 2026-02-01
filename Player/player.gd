@@ -51,6 +51,12 @@ func got_damaged(damage: int) -> void:
 		return
 	health -= damage
 	hp_update.emit(health)
+	if health <= 0:
+		die()
+
+
+func die() -> void:
+	print("Player has died")
 
 
 func inc_experience(ex: int) -> void:
