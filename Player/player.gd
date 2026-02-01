@@ -33,6 +33,8 @@ signal change_to_idle(current :String)
 signal flip_h(value : bool, current :String)
 signal hide_no_using(current :String)
 
+signal player_died()
+
 @onready var main_scene = get_tree().get_first_node_in_group("MainScene")
 
 func _ready() -> void:
@@ -42,7 +44,7 @@ func _ready() -> void:
 	exp_update.emit(experience)
 	exp_level_updated.emit(level_up_threshold, current_level)
 	ability_updated.emit(abilities)
-	
+
 	if main_scene == null:
 		print("main scene wasnt found")
 		return
@@ -76,7 +78,8 @@ func got_damaged(damage: int) -> void:
 
 
 func die() -> void:
-	print("Player has died")
+	player_died.emit()
+
 
 var phase_1_completion = false
 var phase_2_completion = false

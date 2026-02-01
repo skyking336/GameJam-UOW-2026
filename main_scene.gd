@@ -45,6 +45,25 @@ func evolve_player():
 	player_evolving = true
 
 
+func game_won():
+	$MainUI.show_win_screen()
+
+
+func game_lost():
+	$MainUI.show_lose_screen()
+
+
+func stop_game():
+	get_tree().paused = true
+
+
 func _on_boss_defeated(_exp_value: int) -> void:
 	print("Boss defeated! You win!")
-	get_tree().paused = true
+	stop_game()
+	game_won()
+
+
+func _on_player_player_died() -> void:
+	print("Player died! You lose!")
+	stop_game()
+	game_lost()
