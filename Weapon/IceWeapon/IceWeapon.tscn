@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b57hmd7x4rqkx"]
+
+[ext_resource type="PackedScene" uid="uid://ywwepag3t7f3" path="res://Weapon/Weapon.tscn" id="1_w6fvg"]
+[ext_resource type="Script" uid="uid://ckwomlyjw5t1b" path="res://Weapon/IceWeapon/ice_weapon.gd" id="2_ywpnw"]
+[ext_resource type="PackedScene" uid="uid://cxu7h6q0ahjo7" path="res://Weapon/IceWeapon/Iceball.tscn" id="3_b1msg"]
+
+[node name="IceWeapon" unique_id=611963234 instance=ExtResource("1_w6fvg")]
+script = ExtResource("2_ywpnw")
+projectile_scene = ExtResource("3_b1msg")
+
+[node name="Timer" parent="." index="0" unique_id=28950501]
+wait_time = 0.259

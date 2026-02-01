@@ -7,8 +7,15 @@ enum Ability {
 	POISON
 }
 
+const ENEMY_ABILITY_MAP = {
+	"FireMage": Ability.FIRE,
+	"IceMage": Ability.ICE
+}
+
 @export var SPEED: float = 200.0
 @export var max_health: int = 100
+@export var available_weapons: Dictionary[Ability, PackedScene]
+
 var health: int = max_health
 var experience: int = 0
 var invincible = false
@@ -17,7 +24,7 @@ var is_hurt = false
 
 var current_level: int = 1
 var level_up_threshold: int = 200
-var abilities: Array[Ability] = [Ability.FIRE, Ability.ICE]
+var abilities: Array[Ability] = []
 
 signal hp_update(health: int)
 signal max_hp_update(max_health: int)
@@ -34,6 +41,7 @@ signal flip_h(value : bool, current :String)
 signal hide_no_using(current :String)
 
 signal spawn_smoke
+signal player_died()
 
 @onready var main_scene = get_tree().get_first_node_in_group("MainScene")
 
@@ -45,11 +53,12 @@ func _ready() -> void:
 	exp_level_updated.emit(level_up_threshold, current_level)
 	ability_updated.emit(abilities)
 	$Mask.hide()
-	
+
 	if main_scene == null:
 		print("main scene wasnt found")
 		return
-		
+
+
 func _physics_process(_delta: float) -> void:
 	var input_direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if input_direction != Vector2.ZERO:
@@ -78,7 +87,8 @@ func got_damaged(damage: int) -> void:
 
 
 func die() -> void:
-	print("Player has died")
+	player_died.emit()
+
 
 var phase_1_completion = false
 var phase_2_completion = false
@@ -96,7 +106,7 @@ func inc_experience(ex: int) -> void:
 		experience = 0
 		exp_level_updated.emit(level_up_threshold, current_level)
 
-	if current_level == 5:
+	if current_level == 2:
 		if phase_1_completion == false:
 			invincible = true
 			print("phase 1 completed")
@@ -122,9 +132,33 @@ func inc_experience(ex: int) -> void:
 
 	exp_update.emit(experience)
 
+
 func _on_experience_system_exp_threshold_updated(new_threshold: int) -> void:
 	exp_level_updated.emit(new_threshold)
 
+
 func _on_animation_system_hurt_animation_finished() -> void:
 	is_hurt = false
-	
+
+
+func add_ability(new_ability: Ability) -> void:
+	if not new_ability in abilities:
+		abilities.append(new_ability)
+		ability_updated.emit(abilities)
+
+		var weapon = available_weapons.get(new_ability, null)
+		if weapon != null:
+			var weapon_instance = weapon.instantiate()
+			add_child(weapon_instance)
+
+
+func evolve(new_form: String) -> void:
+	current_animation = new_form
+	hide_no_using.emit(current_animation)
+	spawn_smoke.emit()
+
+	if ENEMY_ABILITY_MAP.has(new_form):
+		var new_ability = ENEMY_ABILITY_MAP[new_form]
+		add_ability(new_ability)
+
+	invincible = false

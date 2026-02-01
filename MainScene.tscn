@@ -881,3 +881,4 @@ autoplay = true
 [connection signal="exp_update" from="Player" to="MainUI" method="_on_player_exp_update"]
 [connection signal="hp_update" from="Player" to="MainUI" method="_on_player_hp_update"]
 [connection signal="max_hp_update" from="Player" to="MainUI" method="_on_player_max_hp_update"]
+[connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
