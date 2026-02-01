@@ -44,24 +44,24 @@ func _physics_process(_delta: float) -> void:
 			player.got_damaged(basic_damage)
 			attacked = true
 			$NormalAttackCooldown.start()
-		
+
 		if shot_iceball == false:
 			shoot_ice_ball(player_direction)
 			shot_iceball = true
-			
+
 func fade_out_on_dying():
 	var tween = get_tree().create_tween()
 	tween.tween_property($EnemyAnimation, "modulate", Color.RED, 0.2)
 	tween.tween_property($EnemyAnimation, "modulate:a", 0.0 , 0.5)
 	tween.tween_callback(queue_free)
-	
+
 func shoot_ice_ball(direction: Vector2):
 	var iceball = MageIceBall.instantiate()
 	var main_scene = get_tree().get_first_node_in_group("MainScene")
 	iceball.global_position = $IceBallLocation.global_position
 	iceball.look_at(player.global_position)
 	main_scene.add_child(iceball)
-	iceball.linear_velocity = ice_ball_speed * direction.normalized()	
+	iceball.linear_velocity = ice_ball_speed * direction.normalized()
 
 
 func got_damaged():
@@ -94,8 +94,7 @@ func _on_normal_attack_cooldown_timeout() -> void:
 
 func _on_hit_boxes_mouse_entered() -> void:
 	broadcast_character_name.emit(character_name)
-	print("somrthing enteref")
-	
+
 func _on_ice_ball_cooldown_timeout() -> void:
 	shot_iceball = false
 

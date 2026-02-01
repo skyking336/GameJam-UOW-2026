@@ -16,12 +16,17 @@ func _on_player_hp_update(health: int) -> void:
 	%HPLevel.value = health
 
 
+func _on_player_max_hp_update(max_health: int) -> void:
+	%HPLevel.max_value = max_health
+
+
 func _on_player_exp_update(experience: int) -> void:
 	%ExpLevel.value = experience
 
 
-func _on_player_exp_threshold_updated(new_threshold: int) -> void:
+func _on_player_exp_level_updated(new_threshold: int, new_level: int) -> void:
 	%ExpLevel.max_value = new_threshold
+	%LvlCount.text = str(new_level)
 
 
 func _on_player_ability_updated(abilities: Array[Player.Ability]) -> void:

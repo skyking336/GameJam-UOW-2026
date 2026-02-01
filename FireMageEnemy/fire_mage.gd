@@ -44,17 +44,17 @@ func _physics_process(_delta: float) -> void:
 			player.got_damaged(basic_damage)
 			attacked = true
 			$NormalAttackCooldown.start()
-		
+
 		if shot_fireball == false:
 			shoot_fire_ball(player_direction)
 			shot_fireball = true
-			
+
 func fade_out_on_dying():
 	var tween = get_tree().create_tween()
 	tween.tween_property($EnemyAnimation, "modulate", Color.RED, 0.2)
 	tween.tween_property($EnemyAnimation, "modulate:a", 0.0 , 0.5)
 	tween.tween_callback(queue_free)
-	
+
 func shoot_fire_ball(direction: Vector2):
 	var fireball = MageFireBall.instantiate()
 	var main_scene = get_tree().get_first_node_in_group("MainScene")
@@ -62,7 +62,7 @@ func shoot_fire_ball(direction: Vector2):
 	fireball.look_at(player.global_position)
 	main_scene.add_child(fireball)
 	fireball.linear_velocity = fire_ball_speed * direction.normalized()
-	
+
 
 
 func got_damaged():
@@ -95,8 +95,7 @@ func _on_normal_attack_cooldown_timeout() -> void:
 
 func _on_hit_boxes_mouse_entered() -> void:
 	broadcast_character_name.emit(character_name)
-	print("somrthing enteref")
-	
+
 func _on_fire_ball_cooldown_timeout() -> void:
 	shot_fireball = false
 
